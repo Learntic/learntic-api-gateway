@@ -2,6 +2,7 @@ const axios = require('axios');
 
 const url_auth_ms = "http://18.232.11.157:3001";
 
+
 export async function signUp(account) {
 	let response = await axios.post(url_auth_ms + "/signUp", account)
 	return response.data
@@ -44,4 +45,44 @@ export async function createQuiz(body) {
 export async function updateQuiz(body) {
 	let response = await axios.post(url_evaluacion_ms+"/")
 	return response.data
+}
+
+//-- Feedback --//
+
+const url_feedback_ms = "http://3.210.254.47:";
+
+
+export async function feedbackByUser(url_feedback_ms){
+	let res = await axios.get(url_feedback_ms);
+	return res.data;
+}
+
+export async function feedbackByCourse(url_feedback_ms){
+	let res = await axios.get(url_feedback_ms);
+	return res.data;
+}
+
+export async function feedbackByID(url_feedback_ms){
+	let res = await axios.get(url_feedback_ms);
+	return res.data;
+}
+
+export async function getAllFeedback(url_feedback_ms){
+	let res = await axios.get(url_feedback_ms);
+	return res.data;
+}
+
+export async function createFeedback(url_feedback_ms,body) {
+	let res = await axios.post(url_feedback_ms,body);
+	return res.data;
+}
+
+export async function deleteFeedback(url_feedback_ms) {
+	let res = await axios.delete(url_feedback_ms);
+	return res.data;
+}
+
+export async function updateFeedback(url_feedback_ms, body) {
+	let res = await axios.put(url_feedback_ms, body);
+	return res.data;
 }

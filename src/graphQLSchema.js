@@ -10,19 +10,30 @@ import {
 	accountTypeDef
 } from './auth/account/typeDefs';
 
+import {
+	feedbackMutations,
+	feedbackQueries,
+	feedbackTypeDef
+} from './Microservice/feedback/typeDefs';
+
 import accountResolvers from './auth/account/resolvers';
+
+import feedbackResolvers from './Microservice/feedback/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		accountTypeDef
+		accountTypeDef,
+		feedbackTypeDef
 	],
 	[
-		accountQueries
+		accountQueries,
+		feedbackQueries
 	],
 	[
-		accountMutations
+		accountMutations,
+		feedbackMutations
 	]
 );
 
@@ -31,6 +42,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		accountResolvers
+		accountResolvers,
+		feedbackResolvers
 	)
 });
