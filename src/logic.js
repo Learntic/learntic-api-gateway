@@ -18,7 +18,7 @@ const url_evaluacion_ms = "http://18.210.222.231:8080";
 
 
 export async function getEvasByID(id) {
-	let response = await axios.post(url_evaluacion_ms+"/")
+	let response = await axios.post(url_evaluacion_ms+"/"+id)
 	return response.data
 }
 
@@ -32,7 +32,7 @@ export async function updateEva(body) {
 }
 
 export async function getQuizByID(id) {
-	let response = await axios.post(url_evaluacion_ms+"/")
+	let response = await axios.post(url_evaluacion_ms+"/"+id)
 	return response.data
 }
 
