@@ -1,12 +1,16 @@
-import { generalRequest, getRequest } from '../../utilities';
-import { url, port, entryPoint } from './server';
+import { signUp,signIn } from '../logic';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
 
 const resolvers = {
 	Mutation: {
-		createAccount: (_, { account }) =>
-			generalRequest(`${URL}/`, 'POST', account),
+		signUp:(_,{account})=>{
+            let response= signUp(account)
+            return response
+        },
+        signIn:(_,{account})=>{
+            let response = signIn(account)
+            return response
+        },
 	}
 };
 
