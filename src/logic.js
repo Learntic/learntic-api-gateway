@@ -109,3 +109,8 @@ export async function getAllCourses(url_info_ms){
 	let res = await axios.get(url_info_ms);
 	return res.data;
 }
+
+export async function searchCourseByText(url_info_ms,cadena){
+	let res = await axios.post(url_info_ms, cadena);
+	return res.data;
+}
