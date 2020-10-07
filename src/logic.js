@@ -119,3 +119,10 @@ export async function getTopicsByIdCourse(url_info_ms,entero){
 	let res = await axios.post(url_info_ms, entero);
 	return res.data;
 }
+
+//-- Inscriptionms --//
+
+export async function getInscriptionByUserId(url_inscription_ms){
+	let res = await axios.get(url_inscription_ms);
+	return res.data;
+}
