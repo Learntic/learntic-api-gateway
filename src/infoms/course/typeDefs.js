@@ -4,7 +4,7 @@ export const courseTypeDef = `
       course_description: String!
     course_name: String!
   }
-    type Cadena {
+    type CadenaInput {
       cadena: String!
   }
   input CourseInput {
