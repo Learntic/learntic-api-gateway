@@ -5,35 +5,24 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 import {
-	accountMutations,
-	accountQueries,
-	accountTypeDef
-} from './auth/typeDefs';
+	categoryMutations,
+	categoryQueries,
+	categoryTypeDef
+} from './achievements/user_achievements/typeDefs';
 
-import {
-	feedbackMutations,
-	feedbackQueries,
-	feedbackTypeDef
-} from './Microservice/feedback/typeDefs';
-
-import accountResolvers from './auth/resolvers';
-
-import feedbackResolvers from './Microservice/feedback/resolvers';
+import categoryResolvers from './achievements/user_achievements/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		accountTypeDef,
-		feedbackTypeDef
+		categoryTypeDef
 	],
 	[
-		accountQueries,
-		feedbackQueries
+		categoryQueries
 	],
 	[
-		accountMutations,
-		feedbackMutations
+		categoryMutations
 	]
 );
 
@@ -42,7 +31,6 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		accountResolvers,
-		feedbackResolvers
+		categoryResolvers
 	)
 });

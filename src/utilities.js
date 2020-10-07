@@ -10,10 +10,11 @@ import { formatError } from 'graphql';
  * @return {Promise.<*>} - promise with the error or the response object
  */
 export async function generalRequest(url, method, body, fullResponse) {
+	
 	const parameters = {
 		method,
 		uri: encodeURI(url),
-		body,
+		form:body,
 		json: true,
 		resolveWithFullResponse: fullResponse
 	};
@@ -52,6 +53,17 @@ export function addParams(url, parameters) {
 	}
 	return queryUrl;
 }
+export function addParams2(url,name,parameters) {
+	let queryUrl = `${url}?`;
+	for (var i = 0; i < parameters.length; i++) {
+		queryUrl=queryUrl.concat(name)
+		queryUrl=queryUrl.concat("[]=")
+		queryUrl=queryUrl.concat(parameters[i])
+		queryUrl=queryUrl.concat("&")
+	}
+	console.log(queryUrl)
+	return queryUrl;
+}
 
 /**
  * Generates a GET request with a list of query params
@@ -72,11 +84,11 @@ export function getRequest(url, path, parameters) {
  * @param {Array<string>} mutations
  * @return {string}
  */
- export function mergeSchemas(typeDefs, queries, mutations) {
- 	return `${typeDefs.join('\n')}
-     type Query { ${queries.join('\n')} }
-     type Mutation { ${mutations.join('\n')} }`;
- }
+export function mergeSchemas(typeDefs, queries, mutations) {
+	return `${typeDefs.join('\n')}
+    type Query { ${queries.join('\n')} }
+    type Mutation { ${mutations.join('\n')} }`;
+}
 
 export function formatErr(error) {
 	const data = formatError(error);
