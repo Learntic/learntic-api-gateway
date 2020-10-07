@@ -15,7 +15,7 @@ const resolvers = {
 	Mutation: {
 		createInscription: (_, { inscription }) =>{
             let response = postCreateInscription(`${URL}`, inscription);
-            console.log(URL_user);
+            console.log(URL);
             return response;
         },
         updateInscription: (_, { inscription }) =>{
