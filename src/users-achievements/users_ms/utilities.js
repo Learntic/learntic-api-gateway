@@ -1,7 +1,7 @@
 import request from 'request-promise-native';
 import { formatError } from 'graphql';
 import usersResolvers from './resolvers';
-// import authResolvers from '../../';
+import authResolvers from '../../auth/resolvers';
 /**
  * Creates a request following the given parameters
  * @param {string} url
@@ -10,12 +10,15 @@ import usersResolvers from './resolvers';
  * @param {boolean} [fullResponse]
  * @return {Promise.<*>} - promise with the error or the response object
  */
-export async function generalRequest(url, method, body, fullResponse, token) {
-	// let isAuthenticated = await authResolvers.Query.auth(null,{token: {token:token} });
 
-	// if (!isAuthenticated){
-	// 	return {};
-	// }
+export async function generalRequest(queryErrorResponse, token, url, method, body, fullResponse) {
+	// let isAuthenticated = await authResolvers.Query.auth(null,{token: {token:token} });
+	let isAuthenticated = false;
+
+
+	if (!isAuthenticated){
+		return queryErrorResponse
+	}
 
 	const parameters = {
 		method,
@@ -36,7 +39,7 @@ export async function generalRequest(url, method, body, fullResponse, token) {
 	}
 }
 
-export async function test(url, method, body, fullResponse) {
+export async function friendsAchievementsHandler(url, method, body, fullResponse) {
 	let a = await usersResolvers.Query.myFriends(null, {id : "0xea61"})
 	let b = await achievementResolvers.Query.Achievement(null, {a})
 	return b

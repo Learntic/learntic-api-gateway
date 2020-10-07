@@ -1,15 +1,17 @@
 export const usersTypeDef = `
 type User {
-    uid: String
+    uid: String!
     fullname  : String
-    username: String!
+    username: String
     email : String
     age : Int
+    error: String
 }
 
 type Friendship{
     uid: String
     friends: [User]
+    error: String
 }
   
 input newUserInput {
@@ -33,12 +35,12 @@ input friendshipInput {
 `;
 
 export const usersQueries = `
-      myFriends(id: String!): [User]!
+      myFriends(token: String!, id: String!): [User]!
       friendsAchievements: User
   `;
 
 export const usersMutations = `
-    createUser(user : newUserInput!): User!
-    updateUser(id: String!, user : updateUserInput!): User!
+    createUser(token: String!, user : newUserInput!): User!
+    updateUser(token: String!, id: String!, user : updateUserInput!): User!
     addFriend(data : friendshipInput!): Friendship
 `;
