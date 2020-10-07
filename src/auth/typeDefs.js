@@ -1,18 +1,22 @@
 export const accountTypeDef = `
   type Account {
-      nickName: String!
+      username: String!
       password: String!
+      token: String!
   }
   input AccountInput {
-      nickName: String!
+      username: String!
       password: String!
+  }
+  input Token {
+      token: String!
   }`;
 
 export const accountQueries = `
-      allAccounts: [Account]!
-
+      auth(token: Token!): Boolean!
+      signIn(account: AccountInput!): Account!
   `;
 
 export const accountMutations = `
-    createAccount(account: AccountInput!): Account!
+    signUp(account: AccountInput!): Account!
 `;

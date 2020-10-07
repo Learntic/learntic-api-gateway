@@ -1,4 +1,8 @@
+import authResolvers from './auth/resolvers'
+
 const axios = require('axios');
+
+//-- Authorization --//
 
 const url_auth_ms = "http://18.232.11.157:3001";
 
@@ -11,6 +15,11 @@ export async function signUp(account) {
 export async function signIn(account) {
 	let response = await axios.post(url_auth_ms + "/signIn", account)
 	return response.data
+}
+
+export async function token_auth(token) {
+	let response = await axios.post(url_auth_ms + "/auth", token);
+	return response.data.authorization;
 }
 
 //-- Evaluations --//
@@ -62,9 +71,14 @@ export async function feedbackByCourse(url_feedback_ms){
 	return res.data;
 }
 
-export async function feedbackByID(url_feedback_ms){
-	let res = await axios.get(url_feedback_ms);
-	return res.data;
+export async function feedbackByID(url_feedback_ms,token){
+	let a = await authResolvers.Query.auth(null,{token: {token:token} });
+	if (a){
+		let res = await axios.get(url_feedback_ms);
+		return res.data;
+	}
+	feedback = {id:-1,id_usuario:null,id_curso:null,opinion:null,nota:null};
+	return feedback;
 }
 
 export async function getAllFeedback(url_feedback_ms){

@@ -8,7 +8,7 @@ import {
 	accountMutations,
 	accountQueries,
 	accountTypeDef
-} from './auth/account/typeDefs';
+} from './auth/typeDefs';
 
 import {
 	feedbackMutations,
@@ -16,7 +16,7 @@ import {
 	feedbackTypeDef
 } from './Microservice/feedback/typeDefs';
 
-import accountResolvers from './auth/account/resolvers';
+import accountResolvers from './auth/resolvers';
 
 import feedbackResolvers from './Microservice/feedback/resolvers';
 

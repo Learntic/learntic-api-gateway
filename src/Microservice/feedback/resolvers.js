@@ -10,8 +10,8 @@ const resolvers = {
 			let response= getAllFeedback(`${URL}`);
       return response;
 		},
-		feedbackById: (_, {id}) =>{
-			let response = feedbackByID(`${URL}/${id}`);
+		feedbackById: (_, {id,token}) =>{
+			let response = feedbackByID(`${URL}/${id}`,token);
       return response;
 		},
 		feedbackByUser: (_, {id_usuario}) => {

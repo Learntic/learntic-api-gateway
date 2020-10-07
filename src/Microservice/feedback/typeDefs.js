@@ -15,7 +15,7 @@ export const feedbackTypeDef = `
 
 export const feedbackQueries = `
       allFeedback: [Feedback]!
-      feedbackById(id: Int!): Feedback!
+      feedbackById(id: Int!, token: String!): Feedback!
       feedbackByUser(id_usuario: String!): [Feedback]!
       feedbackByCourse(id_curso: Int!): [Feedback]!
   `;
