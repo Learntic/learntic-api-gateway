@@ -14,26 +14,26 @@ const resolvers = {
 			let response = feedbackByID(`${URL}/${id}`,token);
       return response;
 		},
-		feedbackByUser: (_, {id_usuario}) => {
-			let response = feedbackByUser(`${URL}/${user}/${id_usuario}`);
+		feedbackByUser: (_, {id_usuario,token}) => {
+			let response = feedbackByUser(`${URL}/${user}/${id_usuario}`,token);
       return response;
 		},
-    feedbackByCourse: (_, {id_curso}) => {
-			let response = feedbackByCourse(`${URL}/${course}/${id_curso}`);
+    feedbackByCourse: (_, {id_curso,token}) => {
+			let response = feedbackByCourse(`${URL}/${course}/${id_curso}`,token);
       return response;
 		}
 	},
 	Mutation: {
-		createFeedback: (_, { feedback }) => {
-			let response = createFeedback(`${URL}`,feedback);
+		createFeedback: (_, { feedback,token }) => {
+			let response = createFeedback(`${URL}`,feedback,token);
       return response;
 		},
-		updateFeedback: (_, { id, feedback }) => {
-			let response = updateFeedback(`${URL}/${id}`,feedback);
+		updateFeedback: (_, { id, feedback,token }) => {
+			let response = updateFeedback(`${URL}/${id}`,feedback,token);
       return response;
 		},
-		deleteFeedback: (_, { id }) => {
-			let response = deleteFeedback(`${URL}/${id}`);
+		deleteFeedback: (_, { id,token }) => {
+			let response = deleteFeedback(`${URL}/${id}`,token);
       return response;
 		}
 	}

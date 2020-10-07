@@ -16,12 +16,12 @@ export const feedbackTypeDef = `
 export const feedbackQueries = `
       allFeedback: [Feedback]!
       feedbackById(id: Int!, token: String!): Feedback!
-      feedbackByUser(id_usuario: String!): [Feedback]!
-      feedbackByCourse(id_curso: Int!): [Feedback]!
+      feedbackByUser(id_usuario: String!, token: String!): [Feedback]!
+      feedbackByCourse(id_curso: Int!, token: String!): [Feedback]!
   `;
 
 export const feedbackMutations = `
-    createFeedback(feedback: FeedbackInput!): Feedback!
-    updateFeedback(id: Int!, feedback: FeedbackInput!): Feedback!
-    deleteFeedback(id: Int!): String
+    createFeedback(feedback: FeedbackInput!, token: String!): Feedback!
+    updateFeedback(id: Int!, feedback: FeedbackInput!, token: String!): Feedback!
+    deleteFeedback(id: Int!, token: String!): String!
 `;

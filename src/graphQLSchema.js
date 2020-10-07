@@ -14,11 +14,11 @@ import {
 	feedbackMutations,
 	feedbackQueries,
 	feedbackTypeDef
-} from './Microservice/feedback/typeDefs';
+} from './Courses/feedback/typeDefs';
 
 import accountResolvers from './auth/resolvers';
 
-import feedbackResolvers from './Microservice/feedback/resolvers';
+import feedbackResolvers from './Courses/feedback/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
