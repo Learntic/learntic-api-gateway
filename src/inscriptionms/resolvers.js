@@ -1,7 +1,7 @@
 import { getInscriptionByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription} from '../logic';
 import { url, port, entryPoint, entryPoint_user } from './server';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
+const URL = `http://${url}:${port}${entryPoint}`;
 const URL_user = `http://${url}:${port}${entryPoint_user}`;
 
 const resolvers = {
