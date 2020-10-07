@@ -22,10 +22,16 @@ import {
 	courseTypeDef
 } from './infoms/course/typeDefs';
 
+import {
+	topicMutations,
+	topicQueries,
+	topicTypeDef
+} from './infoms/topic/typeDefs';
+
 
 import accountResolvers from './auth/resolvers';
 import courseResolvers from './infoms/course/resolvers';
-
+import topicResolvers from './infoms/topic/resolvers';
 import feedbackResolvers from './Microservice/feedback/resolvers';
 
 // merge the typeDefs
@@ -34,17 +40,20 @@ const mergedTypeDefs = mergeSchemas(
 		'scalar JSON',
 		accountTypeDef,
 		feedbackTypeDef,
-        courseTypeDef
+        courseTypeDef,
+        topicTypeDef
 	],
 	[
 		accountQueries,
 		feedbackQueries,
-        courseQueries
+        courseQueries,
+        topicQueries
 	],
 	[
         courseMutations,
 		accountMutations,
-		feedbackMutations
+		feedbackMutations,
+        topicMutations
 	]
 );
 
@@ -55,6 +64,7 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		accountResolvers,
 		feedbackResolvers,
-        courseResolvers
+        courseResolvers,
+        topicResolvers
 	)
 });
