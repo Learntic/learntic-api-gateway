@@ -1,4 +1,4 @@
-import { getInscriptionByUserId} from '../logic';
+import { getInscriptionByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription} from '../logic';
 import { url, port, entryPoint, entryPoint_user } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
@@ -13,12 +13,18 @@ const resolvers = {
 	},
     },
 	Mutation: {
-		/*#createInscription: (_, { inscription }) =>
-		#	generalRequest(`${URL}/`, 'POST', inscription),
-		#updateInscription: (_, { id, inscription }) =>
-		#	generalRequest(`${URL}/${id}`, 'PUT', inscription),
-		#deleteInscription: (_, { id }) =>
-		#	generalRequest(`${URL}/${id}`, 'DELETE')*/
+		createInscription: (_, { inscription }) =>{
+            let response = postCreateInscription(`${URL}`, inscription);
+            return response;
+        },
+        updateInscription: (_, { inscription }) =>{
+            let response = putUpdateInscription(`${URL}`, inscription);
+            return response;
+        },
+        deleteInscription: (_, { id }) =>{
+            let response = deleteDeleteInscription(`${URL}`, id);
+            return response;
+        }
 	}
     
 };
