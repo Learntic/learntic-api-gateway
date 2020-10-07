@@ -23,7 +23,7 @@ const resolvers = {
             return response;
         },
         deleteInscription: (_, { id }) =>{
-            let response = deleteDeleteInscription(`${URL}`, id);
+            let response = deleteDeleteInscription(`${URL}/${id}`);
             return response;
         }
 	}
