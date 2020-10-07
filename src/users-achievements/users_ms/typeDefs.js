@@ -37,6 +37,7 @@ input friendshipInput {
 export const usersQueries = `
       myFriends(token: String!, id: String!): [User]!
       friendsAchievements: User
+      getUser(token: String!, id: String!): User!
   `;
 
 export const usersMutations = `
