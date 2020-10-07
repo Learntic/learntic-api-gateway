@@ -10,6 +10,7 @@ const resolvers = {
 			let response = getInscriptionByUserId(`${URL_user}?id_user=${id}`);
             return response;
 	},
+    },
 	Mutation: {
 		/*#createInscription: (_, { inscription }) =>
 		#	generalRequest(`${URL}/`, 'POST', inscription),
@@ -18,7 +19,7 @@ const resolvers = {
 		#deleteInscription: (_, { id }) =>
 		#	generalRequest(`${URL}/${id}`, 'DELETE')*/
 	}
-    };
-}
+    
+};
 
 export default resolvers;
