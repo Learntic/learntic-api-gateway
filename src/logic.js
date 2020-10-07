@@ -100,3 +100,12 @@ export async function updateFeedback(url_feedback_ms, body) {
 	let res = await axios.put(url_feedback_ms, body);
 	return res.data;
 }
+
+//-- Infoms --//
+const url_info_ms_base = "http://18.209.220.131:";
+
+
+export async function getAllCourses(url_info_ms){
+	let res = await axios.get(url_info_ms);
+	return res.data;
+}
