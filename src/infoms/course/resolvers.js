@@ -1,5 +1,5 @@
 import { getAllCourses,searchCourseByText} from '../../logic';
-import { url, port, entryPoint, user, course,entryPointSearchCourse } from './server';
+import { url, port, entryPoint, entryPointSearchCourse } from './server';
 
 
 const URL = `http://${url}:${port}`;
