@@ -1,4 +1,4 @@
-export const InscriptionTypeDef = `
+export const inscriptionTypeDef = `
   type  Inscription{
       id: Int!
       id_usuario: String!

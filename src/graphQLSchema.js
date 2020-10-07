@@ -28,11 +28,19 @@ import {
 	topicTypeDef
 } from './infoms/topic/typeDefs';
 
+import {
+	inscriptionMutations,
+	inscriptionQueries,
+	inscriptionTypeDef
+} from './inscriptionms/typeDefs';
+
+
 
 import accountResolvers from './auth/resolvers';
 import courseResolvers from './infoms/course/resolvers';
 import topicResolvers from './infoms/topic/resolvers';
 import feedbackResolvers from './Microservice/feedback/resolvers';
+import inscriptionResolvers from './inscriptionms/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
@@ -41,19 +49,22 @@ const mergedTypeDefs = mergeSchemas(
 		accountTypeDef,
 		feedbackTypeDef,
         courseTypeDef,
-        topicTypeDef
+        topicTypeDef,
+        inscriptionTypeDef
 	],
 	[
 		accountQueries,
 		feedbackQueries,
         courseQueries,
-        topicQueries
+        topicQueries,
+        inscriptionQueries
 	],
 	[
         courseMutations,
 		accountMutations,
 		feedbackMutations,
-        topicMutations
+        topicMutations,
+        inscriptionMutations
 	]
 );
 
@@ -65,6 +76,7 @@ export default makeExecutableSchema({
 		accountResolvers,
 		feedbackResolvers,
         courseResolvers,
-        topicResolvers
+        topicResolvers,
+        inscriptionResolvers
 	)
 });
