@@ -2,7 +2,7 @@ import { getInscriptionByUserId} from '../logic';
 import { url, port, entryPoint, entryPoint_user } from './server';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
-const URL_user = `http://${url}:${port}/${entryPoint_user}`;
+const URL_user = `http://${url}:${port}${entryPoint_user}`;
 
 const resolvers = {
 	Query: {
