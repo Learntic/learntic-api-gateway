@@ -138,6 +138,6 @@ export async function putUpdateInscription(url_inscription_ms, inscription){
 }
 
 export async function deleteDeleteInscription(url_inscription_ms, id){
-	let res = await axios.delete(url_inscription_ms);
+	let res = await axios.delete(url_inscription_ms, id);
 	return res.data;
 }

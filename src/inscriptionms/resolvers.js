@@ -24,6 +24,7 @@ const resolvers = {
         },
         deleteInscription: (_, { id }) =>{
             let response = deleteDeleteInscription(`${URL}/${id}`);
+            console.log(URL);
             return response;
         }
 	}
