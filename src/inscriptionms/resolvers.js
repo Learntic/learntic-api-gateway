@@ -11,12 +11,12 @@ const resolvers = {
             return response;
 	},
 	Mutation: {
-		#createInscription: (_, { inscription }) =>
+		/*#createInscription: (_, { inscription }) =>
 		#	generalRequest(`${URL}/`, 'POST', inscription),
 		#updateInscription: (_, { id, inscription }) =>
 		#	generalRequest(`${URL}/${id}`, 'PUT', inscription),
 		#deleteInscription: (_, { id }) =>
-		#	generalRequest(`${URL}/${id}`, 'DELETE')
+		#	generalRequest(`${URL}/${id}`, 'DELETE')*/
 	}
     };
 }
