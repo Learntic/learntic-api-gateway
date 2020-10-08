@@ -1,4 +1,5 @@
 import authResolvers from './auth/resolvers'
+import topicResolver from './infoms/topic/resolvers'
 
 const axios = require('axios');
 
@@ -140,4 +141,19 @@ export async function putUpdateInscription(url_inscription_ms, id, inscription){
 export async function deleteDeleteInscription(url_inscription_ms, id){
 	let res = await axios.delete(url_inscription_ms, id);
 	return res.data;
+}
+
+export async function getInscriptionByUserIdAndCourseId(url_inscription_ms, user_id, course_id){
+	let res = await axios.det(url_inscription_ms, user_id, course_id);
+	return res.data;
+}
+
+export async function avanceCurso(url_inscription_ms, id_curso, String){
+	let a = await topicResolver.Query.courseTopics(id_curso: {id_curso: id_curso});
+	if (a.data.length>0){
+		let res = await axios.get(url_inscription_ms);
+		return res.data;
+	}
+	feedback = {id:-1,id_usuario:null,id_curso:null,opinion:null,nota:null};
+	return feedback;
 }

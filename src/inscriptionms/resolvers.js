@@ -11,6 +11,10 @@ const resolvers = {
             console.log(URL_user);
             return response;
 	},
+        inscriptionByUserIdAndCourseId: (_, { user_id, course_id }) =>{
+			let response = getInscriptionByUserIdAndCourseId(`${URL_user}?id_user=${user_id}&course_id${course_id}`);
+            console.log(URL_user);
+            return response;
     },
 	Mutation: {
 		createInscription: (_, { inscription }) =>{
