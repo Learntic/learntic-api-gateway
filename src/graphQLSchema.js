@@ -28,6 +28,19 @@ import {
 	EvaluacionTypeDef,	
 } from './Courses/evaluations/typeDefs';
 
+
+import {
+	courseMutations,
+	courseQueries,
+	courseTypeDef
+} from './Courses/infoms/course/typeDefs';
+
+import {
+	topicMutations,
+	topicQueries,
+	topicTypeDef
+} from './Courses/infoms/topic/typeDefs';
+
 import accountResolvers from './auth/resolvers';
 
 import feedbackResolvers from './Courses/feedback/resolvers';
@@ -37,6 +50,10 @@ import achievementsResolvers from './Users-Achievements/achievements/user_achiev
 
 import evaluationResolvers from './Courses/evaluations/resolvers';
 
+import courseResolvers from './Courses/infoms/course/resolvers';
+
+import topicResolvers from './Courses/infoms/topic/resolvers';
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -44,19 +61,25 @@ const mergedTypeDefs = mergeSchemas(
 		accountTypeDef,
 		feedbackTypeDef,
 		achievementsTypeDef,
-		EvaluacionTypeDef
+		EvaluacionTypeDef,
+		courseTypeDef,
+		topicTypeDef
 	],
 	[
 		accountQueries,
 		feedbackQueries,
 		achievementsQueries,
-		EvaluacionQueries
+		EvaluacionQueries,
+		courseQueries,
+		topicQueries
 	],
 	[
 		accountMutations,
 		feedbackMutations,
 		achievementsMutations,
-		EvaluacionMutations
+		EvaluacionMutations,
+		courseMutations,
+		topicMutations
 	]
 );
 
@@ -68,6 +91,8 @@ export default makeExecutableSchema({
 		accountResolvers,
 		feedbackResolvers,
 		achievementsResolvers,
-		evaluationResolvers
+		evaluationResolvers,
+		courseResolvers,
+		topicResolvers
 	)
 });
