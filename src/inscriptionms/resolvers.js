@@ -18,8 +18,8 @@ const resolvers = {
             console.log(URL);
             return response;
         },
-        updateInscription: (_, { inscription }) =>{
-            let response = putUpdateInscription(`${URL}`, inscription);
+        updateInscription: (_, { id, inscription }) =>{
+            let response = putUpdateInscription(`${URL}${id}`, inscription);
             return response;
         },
         deleteInscription: (_, { id }) =>{
