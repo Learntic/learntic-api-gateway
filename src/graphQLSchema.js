@@ -5,6 +5,11 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 import {
+	categoryMutations,
+	categoryQueries,
+	categoryTypeDef
+} from './achievements/user_achievements/typeDefs';
+import {
 	accountMutations,
 	accountQueries,
 	accountTypeDef
@@ -23,8 +28,7 @@ import {
 } from './users-achievements/users_ms/typeDefs';
 
 import accountResolvers from './auth/resolvers';
-
-import feedbackResolvers from './Microservice/feedback/resolvers';
+import categoryResolvers from './achievements/user_achievements/resolvers';
 
 import usersResolvers from './users-achievements/users_ms/resolvers';
 
@@ -34,16 +38,19 @@ const mergedTypeDefs = mergeSchemas(
 		'scalar JSON',
 		accountTypeDef,
 		feedbackTypeDef,
+    categoryTypeDef,
 		usersTypeDef
 	],
 	[
 		accountQueries,
 		feedbackQueries,
+    categoryQueries,
 		usersQueries
 	],
 	[
 		accountMutations,
 		feedbackMutations,
+    categoryMutations,
 		usersMutations
 	]
 );
@@ -56,5 +63,6 @@ export default makeExecutableSchema({
 		accountResolvers,
 		feedbackResolvers,
 		usersResolvers
+		categoryResolvers
 	)
 });
