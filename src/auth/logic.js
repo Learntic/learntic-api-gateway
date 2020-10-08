@@ -1,5 +1,5 @@
 import authResolvers from './resolvers'
-import topicResolver from './infoms/topic/resolvers'
+import topicResolver from '../infoms/topic/resolvers'
 
 const axios = require('axios');
 
