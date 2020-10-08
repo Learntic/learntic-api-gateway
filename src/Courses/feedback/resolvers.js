@@ -1,6 +1,6 @@
 import { generalRequest, getRequest } from '../../utilities';
 import { url, port, entryPoint, user, course } from './server';
-import { feedbackByUser, feedbackByCourse, feedbackByID, getAllFeedback, createFeedback, deleteFeedback, updateFeedback } from '../../logic';
+import { feedbackByUser, feedbackByCourse, feedbackByID, getAllFeedback, createFeedback, deleteFeedback, updateFeedback } from './logic';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
