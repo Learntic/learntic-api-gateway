@@ -22,6 +22,12 @@ import {
 	achievementsTypeDef
 } from './Users-Achievements/achievements/user_achievements/typeDefs';
 
+import {
+	EvaluacionMutations,
+	EvaluacionQueries,
+	EvaluacionTypeDef,	
+} from './Courses/evaluations/typeDefs';
+
 import accountResolvers from './auth/resolvers';
 
 import feedbackResolvers from './Courses/feedback/resolvers';
@@ -29,23 +35,28 @@ import feedbackResolvers from './Courses/feedback/resolvers';
 
 import achievementsResolvers from './Users-Achievements/achievements/user_achievements/resolvers';
 
+import evaluationResolvers from './Courses/evaluations/resolvers';
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		accountTypeDef,
 		feedbackTypeDef,
-		achievementsTypeDef
+		achievementsTypeDef,
+		EvaluacionTypeDef
 	],
 	[
 		accountQueries,
 		feedbackQueries,
-		achievementsQueries
+		achievementsQueries,
+		EvaluacionQueries
 	],
 	[
 		accountMutations,
 		feedbackMutations,
-		achievementsMutations
+		achievementsMutations,
+		EvaluacionMutations
 	]
 );
 
@@ -56,6 +67,7 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		accountResolvers,
 		feedbackResolvers,
-		achievementsResolvers
+		achievementsResolvers,
+		evaluationResolvers
 	)
 });
