@@ -14,26 +14,38 @@ import {
 	feedbackMutations,
 	feedbackQueries,
 	feedbackTypeDef
-} from './Microservice/feedback/typeDefs';
+} from './Courses/feedback/typeDefs';
+
+import {
+	achievementsMutations,
+	achievementsQueries,
+	achievementsTypeDef
+} from './Users-Achievements/achievements/user_achievements/typeDefs';
 
 import accountResolvers from './auth/resolvers';
 
-import feedbackResolvers from './Microservice/feedback/resolvers';
+import feedbackResolvers from './Courses/feedback/resolvers';
+
+
+import achievementsResolvers from './Users-Achievements/achievements/user_achievements/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		accountTypeDef,
-		feedbackTypeDef
+		feedbackTypeDef,
+		achievementsTypeDef
 	],
 	[
 		accountQueries,
-		feedbackQueries
+		feedbackQueries,
+		achievementsQueries
 	],
 	[
 		accountMutations,
-		feedbackMutations
+		feedbackMutations,
+		achievementsMutations
 	]
 );
 
@@ -43,6 +55,7 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		accountResolvers,
-		feedbackResolvers
+		feedbackResolvers,
+		achievementsResolvers
 	)
 });

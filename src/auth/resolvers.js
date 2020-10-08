@@ -1,4 +1,4 @@
-import { signUp,signIn,token_auth } from '../logic';
+import { signUp,signIn,token_auth } from './logic_authorization';
 
 
 const resolvers = {
