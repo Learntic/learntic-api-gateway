@@ -132,8 +132,8 @@ export async function postCreateInscription(url_inscription_ms, inscription){
 	return res.data;
 }
 
-export async function putUpdateInscription(url_inscription_ms, inscription){
-	let res = await axios.put(url_inscription_ms, inscription);
+export async function putUpdateInscription(url_inscription_ms, id, inscription){
+	let res = await axios.put(url_inscription_ms, id, inscription);
 	return res.data;
 }
 

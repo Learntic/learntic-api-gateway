@@ -20,6 +20,6 @@ export const inscriptionQueries = `
 
 export const inscriptionMutations = `
     createInscription(inscription: InscriptionInput!): Inscription!
-    updateInscription(inscription: InscriptionInput!): Inscription!
+    updateInscription(id: Int!, inscription: InscriptionInput!): Inscription!
     deleteInscription(id: Int!): Blank
 `;
