@@ -147,13 +147,3 @@ export async function getInscriptionByUserIdAndCourseId(url_inscription_ms, user
 	let res = await axios.det(url_inscription_ms, user_id, course_id);
 	return res.data;
 }
-
-export async function avanceCurso(url_inscription_ms, id_curso, String){
-	let a = await topicResolver.Query.courseTopics(id_curso: {id_curso: id_curso});
-	if (a.data.length>0){
-		let res = await axios.get(url_inscription_ms);
-		return res.data;
-	}
-	feedback = {id:-1,id_usuario:null,id_curso:null,opinion:null,nota:null};
-	return feedback;
-}
