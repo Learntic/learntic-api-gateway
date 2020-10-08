@@ -16,6 +16,8 @@ const resolvers = {
             console.log(URL_user);
             return response;
     },
+    },
+
 	Mutation: {
 		createInscription: (_, { inscription }) =>{
             let response = postCreateInscription(`${URL}`, inscription);
@@ -31,9 +33,9 @@ const resolvers = {
             console.log(URL+id);
             return response;
         }
-	}
+	},
     
-}
+
 };
 
 export default resolvers;
