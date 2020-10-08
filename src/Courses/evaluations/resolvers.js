@@ -1,11 +1,10 @@
 import { getEvas,createEva,updateEva, getQuiz, createQuiz, updateQuiz} from './logic_evaluacion';
+import {generalRequest} from "../../utilities"
 
 const resolvers = {
 	Query: {
-		allEvaluacion: (_) => {
-			let response= getEvas();
-      return response;
-		},	
+		allEvaluacion: (_) => 
+			generalRequest('http://18.210.222.231:8080/evaluaciones', 'GET'),
 //------------------------QUIZ
 		allQuiz: (_) => {
 			let response= getQuiz();
