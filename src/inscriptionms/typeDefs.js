@@ -18,5 +18,5 @@ export const inscriptionQueries = `
 export const inscriptionMutations = `
     createInscription(inscription: InscriptionInput!): Inscription!
     updateInscription(inscription: InscriptionInput!): Inscription!
-    deleteInscription(id: Int!): null
+    deleteInscription(id: Int!): []
 `;
