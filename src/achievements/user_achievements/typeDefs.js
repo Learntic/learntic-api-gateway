@@ -35,7 +35,7 @@ export const categoryTypeDef = `
 `;
 
 export const categoryQueries = `
-      allUsers: [userAchievements]!
+      allUsers(token : String): [userAchievements]!
       allAchievements: [achievement]!
 			GetAchievementsByUsernames(names:[String]): [userWithAchievements]!
       categoryById(id: Int!): Category!

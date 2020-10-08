@@ -53,17 +53,6 @@ export function addParams(url, parameters) {
 	}
 	return queryUrl;
 }
-export function addParams2(url,name,parameters) {
-	let queryUrl = `${url}?`;
-	for (var i = 0; i < parameters.length; i++) {
-		queryUrl=queryUrl.concat(name)
-		queryUrl=queryUrl.concat("[]=")
-		queryUrl=queryUrl.concat(parameters[i])
-		queryUrl=queryUrl.concat("&")
-	}
-	console.log(queryUrl)
-	return queryUrl;
-}
 
 /**
  * Generates a GET request with a list of query params

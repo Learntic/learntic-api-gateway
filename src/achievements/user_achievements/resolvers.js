@@ -1,14 +1,22 @@
-import { generalRequest, getRequest,addParams2,addParams } from '../../utilities';
+
+
+import { generalRequest, getRequest, addParams } from '../../utilities';
 import { url, port, entryPoint, entryPointAllUsers,entryPointDeleteUserAchievement,entryPointGetAchievementsByUsernames,entryPointDeleteAchievement, entryPointNewUserAchievement,entryPointNewAchievement,entryPointAllAchievements} from './server';
 
+import { getAllUsers,getAllAchievements } from '../../logic';
 const URL = `http://${url}:${port}`;
 
 const resolvers = {
 	Query: {
-		allUsers:(_) =>
-			getRequest(`${URL}/${entryPointAllUsers}`, ''),
-		allAchievements:(_) =>
-			getRequest(`${URL}/${entryPointAllAchievements}`, ''),
+		allUsers:(_,{token}) =>{
+ 			let response= getAllUsers(`${URL}/${entryPointAllUsers}`, token);
+			return response;
+		},
+		allAchievements:(_,{token}) =>{
+ 			let response= getAllAchievements(`${URL}/${entryPointAllAchievements}}`, token);
+			return response;
+
+		},
 		GetAchievementsByUsernames:(_,{names}) =>
 			generalRequest(addParams(`${URL}/${entryPointGetAchievementsByUsernames}`,{"names[]": names}), 'GET'),
 	},
