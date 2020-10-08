@@ -1,4 +1,4 @@
-import authResolvers from './auth/resolvers'
+import authResolvers from '../../auth/resolvers'
 
 const axios = require('axios');
 
