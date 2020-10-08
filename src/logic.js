@@ -67,7 +67,7 @@ export async function feedbackByUser(url_feedback_ms,token){
 		let res = await axios.get(url_feedback_ms);
 		return res.data;
 	}
-	feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
+	let feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
 	return feedback;
 }
 
@@ -77,7 +77,7 @@ export async function feedbackByCourse(url_feedback_ms,token){
 		let res = await axios.get(url_feedback_ms);
 		return res.data;
 	}
-	feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
+	let feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
 	return feedback;
 }
 
@@ -87,7 +87,7 @@ export async function feedbackByID(url_feedback_ms,token){
 		let res = await axios.get(url_feedback_ms);
 		return res.data;
 	}
-	feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
+	let feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
 	return feedback;
 }
 
@@ -102,7 +102,7 @@ export async function createFeedback(url_feedback_ms,body,token) {
 		let res = await axios.post(url_feedback_ms,body);
 		return res.data;
 	}
-	feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
+	let feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
 	return feedback;
 }
 
@@ -121,6 +121,6 @@ export async function updateFeedback(url_feedback_ms, body,token) {
 		let res = await axios.put(url_feedback_ms, body);
 		return res.data;
 	}
-	feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
+	let feedback = {id:-1,id_usuario:"null",id_curso:-1,opinion:"null",nota:-1};
 	return feedback;
 }
