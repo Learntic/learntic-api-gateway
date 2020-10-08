@@ -9,7 +9,10 @@ export const inscriptionTypeDef = `
     id_usuario: String!
     id_curso: Int!
     max_activity: Int!
-  }`;
+  }
+  type Blank{
+    id: Int
+}`;
 
 export const inscriptionQueries = `
       inscriptionByUserId(id: String!): [Inscription]!
@@ -18,5 +21,5 @@ export const inscriptionQueries = `
 export const inscriptionMutations = `
     createInscription(inscription: InscriptionInput!): Inscription!
     updateInscription(inscription: InscriptionInput!): Inscription!
-    deleteInscription(id: Int!): Inscription
+    deleteInscription(id: Int!): Blank
 `;
