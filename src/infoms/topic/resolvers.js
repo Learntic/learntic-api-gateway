@@ -1,4 +1,4 @@
-import { getTopicsByIdCourse} from '../../logic';
+import { getTopicsByIdCourse} from '../logic';
 import { url, port, entryPoint } from './server';
 
 

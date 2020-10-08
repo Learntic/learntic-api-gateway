@@ -1,4 +1,4 @@
-import { getAllCourses,searchCourseByText} from '../../logic';
+import { getAllCourses,searchCourseByText} from '../logic';
 import { url, port, entryPoint, entryPointSearchCourse } from './server';
 
 
