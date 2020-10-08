@@ -5,9 +5,9 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { mergeSchemas } from './utilities';
 
 import {
-	categoryMutations,
-	categoryQueries,
-	categoryTypeDef
+	achievementsMutations,
+	achievementsQueries,
+	achievementsTypeDef
 } from './achievements/user_achievements/typeDefs';
 import {
 	accountMutations,
@@ -15,22 +15,22 @@ import {
 	accountTypeDef
 } from './auth/typeDefs';
 import accountResolvers from './auth/resolvers';
-import categoryResolvers from './achievements/user_achievements/resolvers';
+import achievementsResolvers from './achievements/user_achievements/resolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		accountTypeDef,
-		categoryTypeDef
+		achievementsTypeDef
 	],
 	[
 		accountQueries,
-		categoryQueries
+		achievementsQueries
 	],
 	[
 		accountMutations,
-		categoryMutations
+		achievementsMutations
 	]
 );
 
@@ -40,6 +40,6 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		accountResolvers,
-		categoryResolvers
+		achievementsResolvers
 	)
 });
