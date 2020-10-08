@@ -2,11 +2,10 @@ const axios = require('axios');
 
 //-- Evaluations --//
 
-const url_evaluacion_ms = "http://18.210.222.231:8080";
-
+const url_evaluacion_ms = "18.210.222.231:8080";
 
 export async function getEvas() {
-	let response = await axios.post(url_evaluacion_ms+"/evaluaciones")
+	let response = await axios.get(url_evaluacion_ms+"/evaluaciones")
 	return response.data
 }
 
@@ -20,7 +19,7 @@ export async function updateEva(body) {
 }
 
 export async function getQuiz() {
-	let response = await axios.post(url_evaluacion_ms+"/quiz")
+	let response = await axios.get(url_evaluacion_ms+"/quiz")
 	return response.data
 }
 

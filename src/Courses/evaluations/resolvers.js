@@ -3,12 +3,12 @@ import { getEvas,createEva,updateEva, getQuiz, createQuiz, updateQuiz} from './l
 const resolvers = {
 	Query: {
 		allEvaluacion: (_) => {
-			let response= getEvas(`${URL}`);
+			let response= getEvas();
       return response;
 		},	
 //------------------------QUIZ
 		allQuiz: (_) => {
-			let response= getQuiz(`${URL}`);
+			let response= getQuiz();
       return response;
 		}		
 	},
