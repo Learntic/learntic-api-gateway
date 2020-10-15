@@ -18,7 +18,7 @@ export const feedbackQueries = `
       feedbackById(id: Int!): Feedback!
       feedbackByUser(id_usuario: String!, token: String!): [Feedback]!
       feedbackByCourse(id_curso: Int!): [Feedback]!
-      feedbackScore(id_curso: Int!): Double!
+      feedbackScore(id_curso: Int!): Float!
   `;
 
 export const feedbackMutations = `
