@@ -93,6 +93,7 @@ export async function getTopicsByIdCourse(url_info_ms,entero){
 
 export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
+    conolse.log("Esta es la impresion del logic");
     console.log(url_inscription_ms);
 	return res.data;
 }
