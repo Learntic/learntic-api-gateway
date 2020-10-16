@@ -8,7 +8,7 @@ const resolvers = {
 	Query: {
 		inscriptionByUserId: (_, { id }) =>{
             console.log("Entramos al query correcto");
-			let response = getInscriptionByUserId(`${URL_user}?id_user=${id}`);
+			let response = getInscriptionByUserId(`${URL_user}?id_usuario=${id}`);
             
             return response;
 	},
