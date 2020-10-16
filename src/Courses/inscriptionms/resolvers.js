@@ -22,15 +22,18 @@ const resolvers = {
 
 	Mutation: {
 		createInscription: (_, { inscription }) =>{
+            console.log("Entramos al query incorrecto");
             let response = postCreateInscription(`${URL}`, inscription);
             console.log(URL);
             return response;
         },
         updateInscription: (_, { id, inscription }) =>{
+            console.log("Entramos al query incorrecto");
             let response = putUpdateInscription(`${URL}${id}`, inscription);
             return response;
         },
         deleteInscription: (_, { id }) =>{
+            console.log("Entramos al query incorrecto");
             let response = deleteDeleteInscription(`${URL}${id}`);
             console.log(URL+id);
             return response;
