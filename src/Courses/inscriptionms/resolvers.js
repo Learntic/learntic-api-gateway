@@ -7,6 +7,7 @@ const URL_user = `http://${url}:${port}${entryPoint_user}`;
 const resolvers = {
 	Query: {
 		inscriptionByUserId: (_, { id }) =>{
+            console.log("Entramos al query correcto");
 			let response = getInscriptionByUserId(`${URL_user}?id_user=${id}`);
             
             return response;
