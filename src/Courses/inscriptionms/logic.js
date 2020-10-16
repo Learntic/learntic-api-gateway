@@ -114,6 +114,7 @@ export async function deleteDeleteInscription(url_inscription_ms, id){
 }
 
 export async function getInscriptionByUserIdAndCourseId(url_inscription_ms, user_id, course_id){
+    conolse.log("Esta es la impresion del logic");
 	let res = await axios.get(url_inscription_ms, user_id, course_id);
 	return res.data;
 }
