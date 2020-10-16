@@ -13,6 +13,7 @@ const resolvers = {
             return response;
 	},
         inscriptionByUserIdAndCourseId: (_, { user_id, course_id }) =>{
+            console.log("Entramos al query incorrecto");
 			let response = getInscriptionByUserIdAndCourseId(`${URL_user}?id_user=${user_id}&course_id${course_id}`);
             console.log(URL_user);
             return response;
