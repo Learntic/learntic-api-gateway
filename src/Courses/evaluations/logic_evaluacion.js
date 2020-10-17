@@ -5,9 +5,12 @@ const axios = require('axios');
 const url_evaluacion_ms = "18.210.222.231:8080";
 
 export async function getEvas() {
-	console.log(`${url_evaluacion_ms}/evaluaciones`)
 
-	let response = await axios.get(`${url_evaluacion_ms}/evaluaciones`)
+    let urlFull="http://"+url_evaluacion_ms+"/evaluaciones";
+     console.log(urlFull);
+	let response = await axios.get(`${urlFull}`);
+   
+
 	return response.data
 }
 

@@ -93,6 +93,8 @@ export async function getTopicsByIdCourse(url_info_ms,entero){
 
 export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
+    console.log("Esta es la impresion del logic");
+    console.log(url_inscription_ms);
 	return res.data;
 }
 
@@ -112,6 +114,7 @@ export async function deleteDeleteInscription(url_inscription_ms, id){
 }
 
 export async function getInscriptionByUserIdAndCourseId(url_inscription_ms, user_id, course_id){
+    
 	let res = await axios.get(url_inscription_ms, user_id, course_id);
 	return res.data;
 }
