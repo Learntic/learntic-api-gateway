@@ -25,7 +25,7 @@ export const EvaluationTypeDef = `
       type:String!
       date:String!
   }
-  type Blank{
+  type BlankId{
     id: Int
 }`;
 
@@ -38,9 +38,9 @@ export const EvaluationQueries = `
 export const EvaluationMutations = `
         createEvaluation(eva: EvaluationInput!): Evaluation! 
         updateEvaluation(id: Int!, eva: EvaluationInput!): Evaluation!  
-        deleteEvaluation(id: Int!): Blank
+        deleteEvaluation(id: Int!): BlankId
 
         createQuiz(qz: QuizInput!): Quiz! 
         updateQuiz(id: Int!, qz: QuizInput!): Quiz!  
-        deleteQuiz(id: Int!): Blank      
+        deleteQuiz(id: Int!): BlankId      
 `;
