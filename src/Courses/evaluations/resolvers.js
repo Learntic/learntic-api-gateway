@@ -1,42 +1,55 @@
-import { getEvas,createEva,updateEva, getQuiz, createQuiz, updateQuiz} from './logic_evaluacion';
-import {generalRequest} from "../../utilities"
+import { getAllEvaluations,getAllQuiz,evaluationById,quizById,createEvaluation,createQuiz,deleteEvaluation,deleteQuiz, UpdateEvaluation, UpdateQuiz} from './logic';
+import { url, port, evaluation, quiz } from './server';
+
+const URL = `http://${url}:${port}`
 
 const resolvers = {
 	Query: {
-		allEvaluacion: (_) => 
-			generalRequest('http://18.210.222.231:8080/evaluaciones', 'GET'),
-//------------------------QUIZ
+		allEvaluation: (_) => {
+			let response= getAllEvaluations(`${URL}/${evaluation}`);
+      		return response;
+		},
+		evaluationById: (_, {id}) =>{
+			let response = evaluationById(`${URL}/${evaluation}/${id}`);
+	  		return response;
+		},
+	//--------------------------------------------
 		allQuiz: (_) => {
-			let response= getQuiz();
-      return response;
-		}		
+			let response= getAllQuiz(`${URL}/${quiz}`);
+      		return response;
+		},
+		quizById: (_, {id}) =>{
+			let response = quizById(`${URL}/${quiz}/${id}`);
+	  		return response;},		
 	},
 	Mutation: {
-		createEvaluacion: (_, { Evaluacion }) => {
-			let response = createEva(`${URL}`,Evaluacion);
-      return response;
+		createEvaluation: (_, {eva}) => {
+			let response = createEvaluation(eva);
+      		return response;
+		},		
+		deleteEvaluation: (_, { id }) =>{
+            let response = deleteEvaluation(`${URL}/${evaluation}/${id}`);
+            return response;
 		},
-		updateEvaluacion: (_, { id,Evaluacion }) => {
-			let response = updateEva(`${URL}/${id}`,Evaluacion);
-      return response;
+		updateEvaluation: (_, { id, eva }) =>{
+            let response = UpdateEvaluation(id,eva);
+            return response;
 		},
-		deleteEvaluacion: (_, { id }) => {
-			let response = deleteEvaluacion(`${URL}/${id}`);
-      return response;
+		
+		//--------------------------------------------
+		createQuiz: (_, {qz}) => {
+			let response = createQuiz(qz);
+      		return response;
 		},
-//--------------------------QUIZ
-		createQuiz: (_, { Quiz }) => {
-			let response = createQuiz(`${URL}`,Quiz);
-      return response;
-		},
-		updateQuiz: (_, { id, Quiz }) => {
-			let response = updateQuiz(`${URL}/${id}`,Quiz);
-      return response;
-		},
-		deleteQuiz: (_, {id}) => {
-			let response = deleteQuiz(`${URL}/${id}`);
-      return response;
-		}
-	}
+		deleteQuiz: (_, { id }) =>{
+            let response = deleteQuiz(`${URL}/${quiz}/${id}`);
+            return response;
+		},			
+		updateQuiz: (_, { id, qz }) =>{
+            let response = UpdateQuiz(id,qz);
+            return response;
+        }
+	},
+	
 };
 export default resolvers;

@@ -1,4 +1,4 @@
-export const url = '18.210.222.231'
+export const url = '54.152.226.20'
 export const port = '8080'
-export const entryPoint = 'evaluaciones'
-export const quizPoint = 'quiz'
+export const evaluation = 'eva'
+export const quiz = 'qz'
