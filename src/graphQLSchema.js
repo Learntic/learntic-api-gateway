@@ -15,7 +15,6 @@ import {
 	feedbackQueries,
 	feedbackTypeDef
 } from './Courses/feedback/typeDefs';
-
 import {
 	achievementsMutations,
 	achievementsQueries,
@@ -57,7 +56,6 @@ import accountResolvers from './auth/resolvers';
 
 import feedbackResolvers from './Courses/feedback/resolvers';
 
-
 import achievementsResolvers from './Users-Achievements/achievements/user_achievements/resolvers';
 
 import evaluationResolvers from './Courses/evaluations/resolvers';
@@ -69,7 +67,6 @@ import topicResolvers from './Courses/infoms/topic/resolvers';
 import inscriptionResolvers from './Courses/inscriptionms/resolvers';
 
 import usersResolvers from './Users-Achievements/users_ms/resolvers';
-
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
