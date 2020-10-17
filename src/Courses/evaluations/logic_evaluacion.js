@@ -2,15 +2,10 @@ const axios = require('axios');
 
 //-- Evaluations --//
 
-const url_evaluacion_ms = "18.210.222.231:8080";
+const url_evaluacion_ms = "http://54.152.226.20:3001:4000";
 
 export async function getEvas() {
-
-    let urlFull="http://"+url_evaluacion_ms+"/evaluaciones";
-     console.log(urlFull);
-	let response = await axios.get(`${urlFull}`);
-   
-
+	let response = await axios.get(url_evaluacion_ms+"/evaluaciones/");
 	return response.data
 }
 

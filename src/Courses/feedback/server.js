@@ -1,4 +1,4 @@
-export const url = '3.210.254.47'
+export const url = '54.152.226.20'
 export const port = '3000'
 export const entryPoint = 'api/feedback'
 export const user = `user`

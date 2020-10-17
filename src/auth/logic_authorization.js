@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const url_auth_ms = "http://18.232.11.157:3001";
+const url_auth_ms = "http://54.152.226.20:3001";
 
 export async function signUp(account) {
 	let response = await axios.post(url_auth_ms + "/signUp", account)
