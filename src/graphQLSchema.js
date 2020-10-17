@@ -22,9 +22,9 @@ import {
 } from './Users-Achievements/achievements/user_achievements/typeDefs';
 
 import {
-	EvaluacionMutations,
-	EvaluacionQueries,
-	EvaluacionTypeDef,	
+	EvaluationMutations,
+	EvaluationQueries,
+	EvaluationTypeDef,	
 } from './Courses/evaluations/typeDefs';
 
 
