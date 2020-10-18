@@ -12,7 +12,7 @@ export async function getInscriptionByUserId(url_inscription_ms){
 		console.log(arr[y])
 	}
 	let res2 = await infoResolvers.Query.getCourseName(null, {id:{entero:1}});
-	//nombres[0] = res2;
+	nombres[0] = res2;
 	console.log(nombres[0]);
 	return res.data;
 }
