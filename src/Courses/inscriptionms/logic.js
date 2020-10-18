@@ -7,7 +7,8 @@ export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
 	console.log(res.data);
 	let a = JSON.stringify(res.data)
-	for(y in a.course_id){
+	var obj = JSON.parse(a);
+	for(var y in obj){
 		console.log(y);
 	}
 	return res.data;
