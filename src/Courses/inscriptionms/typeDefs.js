@@ -16,7 +16,6 @@ export const inscriptionTypeDef = `
 
 export const inscriptionQueries = `
       inscriptionByUserId(id: String!): [String]
-    inscriptionByUserIdAndCourseId(user_id: String!, course_id: Int!): Inscription!
   `;
 
 export const inscriptionMutations = `
