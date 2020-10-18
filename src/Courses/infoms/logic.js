@@ -71,7 +71,7 @@ export async function updateFeedback(url_feedback_ms, body) {
 }
 
 //-- Infoms --//
-const url_info_ms_base = "http://54.174.6.229:8181/api/nombreCurso";
+const url_info_ms_base = "http://18.209.220.131:";
 
 
 export async function getAllCourses(url_info_ms){
@@ -89,8 +89,8 @@ export async function getTopicsByIdCourse(url_info_ms,entero){
 	return res.data;
 }
 
-export async function getCourseName(course_id){
-	let res = await axios.post(url_info_ms_base, course_id);
+export async function getCourseName(url_info_ms, course_id){
+	let res = await axios.post(url_info_ms, course_id);
 	return res.data;
 }
 
