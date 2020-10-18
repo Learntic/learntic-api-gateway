@@ -1,10 +1,16 @@
 const axios = require('axios');
+import courseResolvers from '../infoms/course/resolvers'
 
 //-- Inscriptionms --//
 
 export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
-	return res.data;
+	var a = JSON.stringify(res.data);
+	let nombres = [a.length]
+	for (var i = 0; i < a.length; i++) {
+		nombres[i] = courseResolvers.Query.getCourseName(a[i]);
+	 }
+	return nombres;
 }
 
 export async function postCreateInscription(url_inscription_ms, inscription){
@@ -21,9 +27,10 @@ export async function deleteDeleteInscription(url_inscription_ms, id){
 	let res = await axios.delete(url_inscription_ms, id);
 	return res.data;
 }
-
+/*
 export async function getInscriptionByUserIdAndCourseId(url_inscription_ms, user_id, course_id){
     
 	let res = await axios.get(url_inscription_ms, user_id, course_id);
 	return res.data;
 }
+*/

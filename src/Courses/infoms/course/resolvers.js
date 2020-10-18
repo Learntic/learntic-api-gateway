@@ -1,4 +1,4 @@
-import { getAllCourses,searchCourseByText} from '../logic';
+import { getAllCourses,searchCourseByText, getCourseName} from '../logic';
 import { url, port, entryPoint, entryPointSearchCourse } from './server';
 
 
@@ -16,7 +16,11 @@ const resolvers = {
             return response;
             
         },
-        
+        getCourseName:(_,{id})=>{
+            let response = getCourseName(`${URL}/${entryPointSearchCourse}`,curso);
+            return response;
+            
+        },
     },
     Mutation: {
 		
