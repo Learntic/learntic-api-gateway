@@ -12,6 +12,10 @@ export async function evaluationById(url_evaluation_ms){
 	let response = await axios.get(url_evaluation_ms)
 	return response.data
 }
+export async function ByStudent(url_evaluation_ms){
+	let response = await axios.get(url_evaluation_ms)
+	return response.data
+}
 
 export async function createEvaluation(eva){
 	let response = await axios.post(`${url_ms}/eva`,eva)
