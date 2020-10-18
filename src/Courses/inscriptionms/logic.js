@@ -5,12 +5,13 @@ import courseResolvers from '../infoms/course/resolvers'
 
 export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
-	var a = JSON.stringify(res.data);
+	/*var a = JSON.stringify(res.data);
 	let nombres = [a.length]
 	for (var i = 0; i < a.length; i++) {
 		nombres[i] = courseResolvers.Query.getCourseName(a[i]);
 	 }
-	return nombres;
+	return nombres;*/
+	return "puta";
 }
 
 export async function postCreateInscription(url_inscription_ms, inscription){
