@@ -6,10 +6,9 @@ import infoResolvers from '../infoms/course/resolvers'
 export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
 	console.log(res.data);
-	console.log(res);
 	//var j = JSON.stringify(res.data)
-	for(var y in res){
-		console.log(y.data);
+	for(var y in res.data){
+		console.log(res.data[0]);
 	}
 	/*let a = JSON.stringify(res.data)
 	var obj = JSON.parse(a);
