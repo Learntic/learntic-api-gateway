@@ -8,7 +8,7 @@ export async function getInscriptionByUserId(url_inscription_ms){
 	console.log(res.data);
 	//var j = JSON.stringify(res.data)
 	for(var y in res.data){
-		console.log(res.data[0]);
+		console.log(res.data[y]);
 	}
 	/*let a = JSON.stringify(res.data)
 	var obj = JSON.parse(a);
