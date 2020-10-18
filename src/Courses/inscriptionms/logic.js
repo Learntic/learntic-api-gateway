@@ -1,4 +1,5 @@
 const axios = require('axios');
+import infoResolvers from '../infoms/course/resolvers'
 
 //-- Inscriptionms --//
 
