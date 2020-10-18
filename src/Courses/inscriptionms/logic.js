@@ -6,15 +6,13 @@ import infoResolvers from '../infoms/course/resolvers'
 export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
 	var arr = [];
-	//var j = JSON.stringify(res.data)
+	var nombres = [];
 	for(var y in res.data){
-		//console.log(res.data[y].id_curso);
 		arr[y] = res.data[y].id_curso
-		console.log(arr[y]);
+		let res2 = infoResolvers.Query.getCourseName(arr[y]);
+		nombres[y] = res2;
+		console.log(nombres[y]);
 	}
-	/*let a = JSON.stringify(res.data)
-	var obj = JSON.parse(a);
-	*/
 	return res.data;
 }
 
