@@ -16,6 +16,11 @@ const resolvers = {
             return response;
             
         },
+        getCourseName:(_,{id})=>{
+            let response = getCourseName(`${URL}/${entryPointSearchCourse}`,id);
+            return response;
+            
+        },
         
     },
     Mutation: {
