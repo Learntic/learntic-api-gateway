@@ -15,7 +15,7 @@ export async function getInscriptionByUserId(url_inscription_ms){
 		console.log(nombres[0]);
 	}
 	
-	return res.data;
+	return nombres;
 }
 
 export async function postCreateInscription(url_inscription_ms, inscription){
