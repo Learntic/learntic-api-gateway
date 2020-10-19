@@ -10,7 +10,7 @@ export const inscriptionTypeDef = `
     id_curso: Int!
     max_activity: Int!
   }
-  input Cs{
+  type Cs{
     id: Int!
     nombre: String!
   }
