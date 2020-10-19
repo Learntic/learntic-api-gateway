@@ -1,14 +1,11 @@
 
-import authResolvers from './../../auth/resolvers'
+import authResolvers from '../../auth/resolvers'
+import usersResolvers from '../users_ms/resolvers'
+import achievementsResolvers from '../achievements/user_achievements/resolvers'
 
-const axios = require('axios');
-
-import {generalRequest} from './../../utilities'
 //-- Achievements --//
 
-const url_achiviements_ms = "http://54.152.226.20:3002";
-
-export async function getAllUsers(url_achievement_ms,token){
+export async function getAllUsers(url_achievement_ms, token){
 	let a = await authResolvers.Query.auth(null,{token: {token:token} });
 	if (a)
 		return generalRequest(url_achievement_ms, '');
@@ -19,4 +16,12 @@ export async function getAllAchievements(url_achievement_ms,token){
 	if (a)
 		return generalRequest(url_achievement_ms, '');
 	return [{name:"-1" , description: "-1" }];
+}
+
+export async function getFriendsAchievements(id, token){
+	let friends = await usersResolvers.Query.myFriends(null, {id: id, token: token})
+	friends = friends.map(user => {return user.username})
+
+	let response = await achievementsResolvers.Query.GetAchievementsByUsernames(null, {names: friends})
+	return response;
 }
