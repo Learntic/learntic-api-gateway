@@ -3,6 +3,7 @@ export const accountTypeDef = `
       username: String!
       password: String!
       token: String!
+      uid: String!
   }
   input AccountInput {
       username: String!
