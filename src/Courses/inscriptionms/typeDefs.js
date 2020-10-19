@@ -10,12 +10,16 @@ export const inscriptionTypeDef = `
     id_curso: Int!
     max_activity: Int!
   }
+  type Cs{
+    id: Int!
+    nombre: String!
+  }
   type Blank{
     id: Int
-}`;
+  }`;
 
 export const inscriptionQueries = `
-      inscriptionByUserId(id: String!): [Inscription]!
+      inscriptionByUserId(id: String!): [String]
     inscriptionByUserIdAndCourseId(user_id: String!, course_id: Int!): Inscription!
   `;
 

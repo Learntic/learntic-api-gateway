@@ -1,5 +1,5 @@
-import { getAllCourses,searchCourseByText} from '../logic';
-import { url, port, entryPoint, entryPointSearchCourse } from './server';
+import { getAllCourses,searchCourseByText, getCourseName} from '../logic';
+import { url, port, entryPoint, entryPointSearchCourse, entryPointSearchCourseName } from './server';
 
 
 const URL = `http://${url}:${port}`;
@@ -13,6 +13,11 @@ const resolvers = {
         },
         searchCourse:(_,{curso})=>{
             let response = searchCourseByText(`${URL}/${entryPointSearchCourse}`,curso);
+            return response;
+            
+        },
+        getCourseName:(_,{id})=>{
+            let response = getCourseName(`${URL}/${entryPointSearchCourseName}`,id);
             return response;
             
         },
