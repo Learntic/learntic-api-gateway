@@ -1,4 +1,4 @@
-import { getAllEvaluations,getAllQuiz,evaluationById,quizById,createEvaluation,createQuiz,deleteEvaluation,deleteQuiz, UpdateEvaluation, UpdateQuiz} from './logic';
+import { getAllEvaluations,getAllQuiz,evaluationById,quizById,createEvaluation,createQuiz,deleteEvaluation,deleteQuiz, UpdateEvaluation, UpdateQuiz, ByStudent} from './logic';
 import { url, port, evaluation, quiz } from './server';
 
 const URL = `http://${url}:${port}`
@@ -11,6 +11,11 @@ const resolvers = {
 		},
 		evaluationById: (_, {id}) =>{
 			let response = evaluationById(`${URL}/${evaluation}/${id}`);
+	  		return response;
+		},
+
+		evaByStudent: (_, {student}) =>{
+			let response = ByStudent(`${URL}/${evaluation}/by/${student}`);
 	  		return response;
 		},
 	//--------------------------------------------

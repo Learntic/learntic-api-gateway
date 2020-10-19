@@ -1,46 +1,50 @@
 export const EvaluationTypeDef = `
   type Evaluation {
       id:Int!
-      id_student: Int!
-      qualification:String!
+      student: String!
+      qualification:Float!
       type:String!
       date:String!      
   }
   input EvaluationInput {
-    id_student: Int!
-    qualification:String!
+    student: String!
+    qualification:Float!
     type:String!
     date:String!
   }
   type Quiz {
       id:Int!
-      id_student: Int!
-      qualification:String!
+      student: String!
+      qualification:Float!
       type:String!
       date:String!
   }
   input QuizInput {
-      id_student: Int!
-      qualification:String!
+      student: String!
+      qualification:Float!
       type:String!
       date:String!
   }
-  type BlankId{
+  type Blank{
     id: Int
 }`;
 
 export const EvaluationQueries = `
         allEvaluation: [Evaluation]!
         allQuiz: [Quiz]!
+
         evaluationById(id: Int!): Evaluation!
         quizById(id: Int!): Quiz!
+
+        evaByStudent(student: String!):[Evaluation]!
+
   `;
 export const EvaluationMutations = `
         createEvaluation(eva: EvaluationInput!): Evaluation! 
         updateEvaluation(id: Int!, eva: EvaluationInput!): Evaluation!  
-        deleteEvaluation(id: Int!): BlankId
+        deleteEvaluation(id: Int!): Blank        
 
         createQuiz(qz: QuizInput!): Quiz! 
         updateQuiz(id: Int!, qz: QuizInput!): Quiz!  
-        deleteQuiz(id: Int!): BlankId      
+        deleteQuiz(id: Int!): Blank      
 `;
