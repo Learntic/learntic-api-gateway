@@ -12,11 +12,11 @@ import authResolvers from '../../auth/resolvers';
  */
 
 export async function generalRequest(queryErrorResponse, token, url, method, body, fullResponse) {
-	let isAuthenticated = await authResolvers.Query.auth(null, {token: {token:token} });
+	// let isAuthenticated = await authResolvers.Query.auth(null, {token: {token:token} });
 
-	if (!isAuthenticated){
-		return queryErrorResponse
-	}
+	// if (!isAuthenticated){
+	// 	return queryErrorResponse
+	// }
 
 	const parameters = {
 		method,

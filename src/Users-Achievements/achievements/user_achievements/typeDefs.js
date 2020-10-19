@@ -35,11 +35,12 @@ export const achievementsTypeDef = `
 `;
 
 export const achievementsQueries = `
-      allUsers(token : String): [userAchievements]!
-      allAchievements: [achievement]!
-			GetAchievementsByUsernames(names:[String]): [userWithAchievements]!
-      categoryById(id: Int!): Category!
-  `;
+    allUsers(token : String): [userAchievements]!
+    allAchievements: [achievement]!
+    GetAchievementsByUsernames(names:[String]): [userWithAchievements]!
+    friendsAchievements(id: String!, token: String!): [userWithAchievements]!
+    categoryById(id: Int!): Category!
+`;
 
 export const achievementsMutations = `
 		createUserAchievements(user_achievement2: userAchievementsInput): userAchievements!
