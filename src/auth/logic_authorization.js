@@ -1,18 +1,16 @@
 const axios = require('axios');
 
-const url_auth_ms = "http://18.232.11.157:3001";
-
-export async function signUp(account) {
-	let response = await axios.post(url_auth_ms + "/signUp", account)
+export async function signUp(url_auth_ms, account) {
+	let response = await axios.post(url_auth_ms, account)
 	return response.data
 }
 
-export async function signIn(account) {
-	let response = await axios.post(url_auth_ms + "/signIn", account)
+export async function signIn(url_auth_ms, account) {
+	let response = await axios.post(url_auth_ms, account)
 	return response.data
 }
 
-export async function token_auth(token) {
-	let response = await axios.post(url_auth_ms + "/auth", token);
+export async function token_auth(url_auth_ms,token) {
+	let response = await axios.post(url_auth_ms, token);
 	return response.data.authorization;
 }

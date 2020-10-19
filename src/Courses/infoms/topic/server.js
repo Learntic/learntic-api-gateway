@@ -1,4 +1,4 @@
-export const url = '18.209.220.131'
+export const url = '54.174.6.229'
 export const port = '8181'
 export const entryPoint = '/api/temario'
 

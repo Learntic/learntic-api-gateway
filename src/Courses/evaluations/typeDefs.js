@@ -1,40 +1,50 @@
-export const EvaluacionTypeDef = `
-  type Evaluacion {
-      id_evaluacion: String!
-      id_estudiante: String!
-      tipo_repeticion: String!
-      nota: Int!
+export const EvaluationTypeDef = `
+  type Evaluation {
+      id:Int!
+      student: String!
+      qualification:Float!
+      type:String!
+      date:String!      
+  }
+  input EvaluationInput {
+    student: String!
+    qualification:Float!
+    type:String!
+    date:String!
   }
   type Quiz {
-    id_quiz: String!
-    id_estudiante: String!
-    nota: Int!
-}
-input EvaluacionInput {
-      id_evaluacion: String!
-      id_estudiante: String!
-      tipo_repeticion: String!
-      nota: Int!
-}
-input QuizInput {
-    id_quiz: String!
-    id_estudiante: String!
-    nota: Int!
+      id:Int!
+      student: String!
+      qualification:Float!
+      type:String!
+      date:String!
+  }
+  input QuizInput {
+      student: String!
+      qualification:Float!
+      type:String!
+      date:String!
+  }
+  type Blank1{
+    id: Int
 }`;
 
-export const EvaluacionQueries = `
-        allEvaluacion: [Evaluacion]!
+export const EvaluationQueries = `
+        allEvaluation: [Evaluation]!
         allQuiz: [Quiz]!
-        EvaluacionById(id: Int!): Evaluacion!
-        QuizById(id: Int!): Quiz!
+
+        evaluationById(id: Int!): Evaluation!
+        quizById(id: Int!): Quiz!
+
+        evaByStudent(student: String!):[Evaluation]!
+
   `;
+export const EvaluationMutations = `
+        createEvaluation(eva: EvaluationInput!): Evaluation! 
+        updateEvaluation(id: Int!, eva: EvaluationInput!): Evaluation!  
+        deleteEvaluation(id: Int!): Blank1        
 
-export const EvaluacionMutations = `
-        createEvaluacion(Evaluacion: EvaluacionInput!): Evaluacion!
-        updateEvaluacion(id: Int!, Evaluacion: EvaluacionInput!): Evaluacion!
-        deleteEvaluacion(id: Int!): String
-
-        createQuiz(Quiz: QuizInput!): Quiz!
-        updateQuiz(id: Int!, Quiz: QuizInput!): Quiz!
-        deleteQuiz(id: Int!): String
+        createQuiz(qz: QuizInput!): Quiz! 
+        updateQuiz(id: Int!, qz: QuizInput!): Quiz!  
+        deleteQuiz(id: Int!): Blank      
 `;

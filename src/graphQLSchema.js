@@ -15,7 +15,6 @@ import {
 	feedbackQueries,
 	feedbackTypeDef
 } from './Courses/feedback/typeDefs';
-
 import {
 	achievementsMutations,
 	achievementsQueries,
@@ -23,9 +22,9 @@ import {
 } from './Users-Achievements/achievements/user_achievements/typeDefs';
 
 import {
-	EvaluacionMutations,
-	EvaluacionQueries,
-	EvaluacionTypeDef,	
+	EvaluationMutations,
+	EvaluationQueries,
+	EvaluationTypeDef,	
 } from './Courses/evaluations/typeDefs';
 
 
@@ -57,7 +56,6 @@ import accountResolvers from './auth/resolvers';
 
 import feedbackResolvers from './Courses/feedback/resolvers';
 
-
 import achievementsResolvers from './Users-Achievements/achievements/user_achievements/resolvers';
 
 import evaluationResolvers from './Courses/evaluations/resolvers';
@@ -70,7 +68,6 @@ import inscriptionResolvers from './Courses/inscriptionms/resolvers';
 
 import usersResolvers from './Users-Achievements/users_ms/resolvers';
 
-
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -78,7 +75,7 @@ const mergedTypeDefs = mergeSchemas(
 		accountTypeDef,
 		feedbackTypeDef,
 		achievementsTypeDef,
-		EvaluacionTypeDef,
+		EvaluationTypeDef,
 		courseTypeDef,
 		topicTypeDef,
 		inscriptionTypeDef,
@@ -88,7 +85,7 @@ const mergedTypeDefs = mergeSchemas(
 		accountQueries,
 		feedbackQueries,
 		achievementsQueries,
-		EvaluacionQueries,
+		EvaluationQueries,
 		courseQueries,
 		topicQueries,
 		inscriptionQueries,
@@ -98,7 +95,7 @@ const mergedTypeDefs = mergeSchemas(
 		accountMutations,
 		feedbackMutations,
 		achievementsMutations,
-		EvaluacionMutations,
+		EvaluationMutations,
 		courseMutations,
 		topicMutations,
 		inscriptionMutations,
