@@ -1,0 +1,167 @@
+swagger: "2.0"
+info:
+  description: "API description of the users microservices of learnTIC"
+  version: "1.0.0"
+  title: "users_ms"
+host: "3.222.180.111:8081"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /friends/{userId}:
+    get:
+      tags:
+      - "friends"
+      summary: "Returns a list of friends of a given user"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "ID of user that is going to be fetch the list of friends"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "OK"
+        "404":
+          description: "Not Found"
+  /friends:
+    post:
+      tags:
+      - "friends"
+      summary: "Add a new friends relationship to the given users"
+      description: ""
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "from" 
+        description: "User id from where the realtionship inside the DB is going to start"
+        type: "string"
+        in: "formData"
+        required: true
+      - name: "to" 
+        description: "User id to where the realtionship inside the DB is going to end"
+        type: "string"
+        in: "formData"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+        "400":
+          description: "Bad Request"
+  /users:
+    post:
+      tags:
+      - "users"
+      summary: "Add a new user"
+      operationId: "Add Products"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "formData"
+        description: "username of the user"
+        required: true
+        type: "string"
+      - name: "fullname"
+        in: "formData"
+        description: "fullname of the user"
+        required: false
+        type: "string"
+      - name: "age"
+        in: "formData"
+        description: "age of the user"
+        required: false
+        type: "integer"
+      - name: "email"
+        in: "formData"
+        description: "email of the user"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "OK"
+        "404":
+          description: "Not Found"
+                
+  /users/{userId}:
+    get:
+      tags:
+      - "users"
+      summary: "Returns details of user by ID"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "ID of the user that needs to be fetched"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "OK"
+        "400":
+          description: "Bad request"
+    put:
+      tags:
+      - "users"
+      summary: "Update details of a user by Id"
+      description: ""
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        description: "The user ID that is going to be updated"
+        required: true
+        type: "string"
+      - name: "username" 
+        description: "new username of the user to be updated"
+        type: "string"
+        in: "formData"
+      - name: "fullname" 
+        description: "new fullname of the user to be updated"
+        type: "string"
+        in: "formData"
+      - name: "age" 
+        description: "new age of the user to be updated"
+        type: "integer"
+        in: "formData"
+      - name: "email" 
+        description: "new email of the user to be updated"
+        type: "string"
+        in: "formData"
+      responses:
+        "200":
+          description: "Ok"
+        "400":
+          description: "Bad Request"
+definitions:
+  User:
+    type: "object"
+    properties:
+      uid:
+        type: "string"
+        example: "0x9f2a3b"
+      username:
+        type: "string"
+        example: "camantillad"
+      fullname:
+        type: "string"
+        example: "Cristian Mantilla"
+      age:
+        type: "integer"
+        example: 21
+      email:
+        type: "string"
+        example: "camantillad@unal.edu.co"
