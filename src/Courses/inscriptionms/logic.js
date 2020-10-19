@@ -7,8 +7,9 @@ export async function getInscriptionByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
 	var nombres = [];
 	for(var y in res.data){
-		let res2 = await infoResolvers.Query.getCourseName(null, {id:{entero:res.data[y].id_curso}});
-		nombres[y] = res2;
+		var id = res.data[y].id_curso;
+		let res2 = await infoResolvers.Query.getCourseName(null, {id:{entero:id}});
+		nombres[y] = {id, res2};
 	}
 	
 	return nombres;
