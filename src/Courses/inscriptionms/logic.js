@@ -11,7 +11,7 @@ export async function getInscriptionByUserId(url_inscription_ms){
 		let res2 = await infoResolvers.Query.getCourseName(null, {id:{entero:id}});
 		console.log(id);
 		console.log(res2);
-		nombres[y] = {"id" : id.data, "course": res2.data};
+		nombres[y] = "id : " + id + "course : " + res2;
 	}
 	
 	return nombres;
