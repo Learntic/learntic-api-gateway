@@ -10,7 +10,7 @@ export const inscriptionTypeDef = `
     id_curso: Int!
     max_activity: Int!
   }
-  input Curso{
+  input Cs{
     id: Int!
     nombre: String!
   }
@@ -19,7 +19,7 @@ export const inscriptionTypeDef = `
   }`;
 
 export const inscriptionQueries = `
-      inscriptionByUserId(id: String!): [Curso]
+      inscriptionByUserId(id: String!): [Cs]
     inscriptionByUserIdAndCourseId(user_id: String!, course_id: Int!): Inscription!
   `;
 
