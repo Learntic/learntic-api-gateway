@@ -3,7 +3,7 @@ export const courseTypeDef = `
       course_id: Int!
       course_description: String!
     course_name: String!
-    course_score: Int!
+    course_score: Float!
   }
     input CadenaInput {
       cadena: String!
