@@ -1,4 +1,4 @@
-import { generalRequest, test} from './utilities';
+import { generalRequest, notMyFriends} from './utilities';
 import { url, port, friendsEntryPoint, usersEntryPoint } from './server';
 
 const URL_Friends = `http://${url}:${port}/${friendsEntryPoint}`;
@@ -10,11 +10,13 @@ let userErrorResponse =  {error: new Error('authentication failed - not valid to
 
 const resolvers = {
 	Query: {
-		myFriends: (_, { id, token}) => 
+		myFriends: (_, { id, token }) => 
 			generalRequest(iterableUserErrorResponse, token, `${URL_Friends}/${id}`, 'GET'),
-		getUser: (_, { id, token}) => 
+		notMyFriends: (_, { id, token}) => 
+			notMyFriends(iterableUserErrorResponse, id, token),
+		getUser: (_, { id, token }) => 
 			generalRequest(iterableUserErrorResponse, token, `${URL_Users}/${id}`, 'GET'),
-		getAllUsers: (_, { token}) => 
+		getAllUsers: (_, { token }) => 
 			generalRequest(iterableUserErrorResponse, token, `${URL_Users}`, 'GET'),
 	},
 	Mutation: {
