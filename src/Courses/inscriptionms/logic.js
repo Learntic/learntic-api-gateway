@@ -19,9 +19,13 @@ export async function coursesByNotUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
 	var cursos = [];
 	let res3 = await infoResolvers.Query.getCoursesId(null);
+	for(var x in res3.data){
+		if(res.data.indexOf(res3.data[x]) != -1)
+			res3.splice(x,1);
+	}
 	console.log(res3)
-	for(var y in res.data){
-		var id = res.data[y].id_curso;
+	for(var y in res3.data){
+		var id = res3.data[y];
 		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
 		cursos[y] = res2;
 	}
