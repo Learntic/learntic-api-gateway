@@ -10,7 +10,7 @@ const resolvers = {
 			return response;
 		},
 		signIn:(_,{account})=>{
-			let response = signIn(`${URL}/${signinPoint}`, account)
+			let response = signIn(`${URL}/${signInPoint}`, account)
 			return response;
 		}
 	},
