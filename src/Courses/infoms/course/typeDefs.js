@@ -20,7 +20,7 @@ export const courseQueries = `
     allCourses: [Curso]!
     searchCourse(curso: CadenaInput!): [Curso]!
     getCourseName(id: Id!): String
-    getCoursesId: [Integer]!
+    getCoursesId: [Int]!
   `;
 
 export const courseMutations = `
