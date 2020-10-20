@@ -16,10 +16,6 @@ const resolvers = {
             return response;
             
         },
-        getCourse:(_,{id})=>{
-            let response = getCourse(`${URL}/${entryPointSearchCourseComplete}`,id);
-            return response;
-        },
         getCoursesId:(_)=>{
             let response = getCoursesId(`${URL}/${entryPointSearchCoursesIds}`);
             return response;
@@ -27,7 +23,10 @@ const resolvers = {
         
     },
     Mutation: {
-		
+		getCourse:(_,{id})=>{
+            let response = getCourse(`${URL}/${entryPointSearchCourseComplete}`,id);
+            return response;
+        },
 	}
 			
 	

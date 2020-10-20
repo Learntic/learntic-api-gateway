@@ -19,10 +19,9 @@ export const courseTypeDef = `
 export const courseQueries = `
     allCourses: [Curso]!
     searchCourse(curso: CadenaInput!): [Curso]!
-    getCourse(id: Id!): Curso
     getCoursesId: [Int]!
   `;
 
 export const courseMutations = `
-    
+    getCourse(id: Id!): Curso
 `;
