@@ -1,4 +1,4 @@
-import { coursesByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription, getInscriptionByUserIdAndCourseId} from './logic';
+import { coursesByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription, getInscriptionByUserIdAndCourseId, coursesByNotUserId} from './logic';
 import { url, port, entryPoint, entryPoint_user } from './server';
 
 const URL = `http://${url}:${port}${entryPoint}`;
