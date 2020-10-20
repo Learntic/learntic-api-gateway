@@ -1,20 +1,44 @@
 const axios = require('axios');
 import infoResolvers from '../infoms/course/resolvers'
+import feedbackResolvers from '../feedback/resolvers'
 
 //-- Inscriptionms --//
 
-export async function getInscriptionByUserId(url_inscription_ms){
+export async function coursesByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
-	var nombres = [];
+	var cursos = [];
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
-		let res2 = await infoResolvers.Query.getCourseName(null, {id:{entero:id}});
-		console.log(id);
-		console.log(res2);
-		nombres[y] = res2;
+		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
+		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
+		res2.course_score = puntaje;
+		cursos[y] = res2;
 	}
 	
-	return nombres;
+	return cursos;
+}
+
+export async function coursesByNotUserId(url_inscription_ms){
+	let res = await axios.get(url_inscription_ms);
+	var cursos = [];
+	var ids = [];
+	let res3 = await infoResolvers.Query.getCoursesId(null);
+	for(var y in res.data){
+		var id = res.data[y].id_curso;
+		ids[y] = id;
+	}
+	for(var x in ids){
+		res3.splice(res3.indexOf(ids[x]),1);
+	}
+	for(var y in res3){
+		var id = res3[y];
+		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
+		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
+		res2.course_score = puntaje;
+		cursos[y] = res2;
+	}
+	
+	return cursos;
 }
 
 export async function postCreateInscription(url_inscription_ms, inscription){
