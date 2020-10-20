@@ -3,7 +3,7 @@ export const courseTypeDef = `
       course_id: Int!
       course_description: String!
     course_name: String!
-    course_score: Int!
+    course_score: Float!
   }
     input CadenaInput {
       cadena: String!
@@ -19,9 +19,9 @@ export const courseTypeDef = `
 export const courseQueries = `
     allCourses: [Curso]!
     searchCourse(curso: CadenaInput!): [Curso]!
-    getCourseName(id: Id!): String
+    getCoursesId: [Int]!
   `;
 
 export const courseMutations = `
-    
+    getCourse(id: Id!): Curso
 `;
