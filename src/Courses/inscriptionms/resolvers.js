@@ -18,6 +18,10 @@ const resolvers = {
             console.log(URL_user);
             return response;
     },
+    coursesByNotUserId: (_, { id }) =>{
+        let response = coursesByNotUserId(`${URL_user}?id_usuario=${id}`);
+        return response;
+},
     },
 
 	Mutation: {
