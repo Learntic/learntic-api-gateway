@@ -79,9 +79,9 @@ export async function getAllCourses(url_info_ms){
 	let res = await axios.get(url_info_ms);
 	console.log(res.data);
 	for(var y in res.data){
-		var id = res.data[y].id_curso;
+		var id = res[y].id_curso;
 		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
-		res.data[y].course_score = puntaje;
+		res[y].course_score = puntaje;
 	}
 	return res.data;
 }
