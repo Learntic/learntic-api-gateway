@@ -20,13 +20,11 @@ export async function coursesByNotUserId(url_inscription_ms){
 	var cursos = [];
 	var ids = [];
 	let res3 = await infoResolvers.Query.getCoursesId(null);
-	console.log(res3[0]);
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
 		ids[y] = id;
 	}
-	console.log(ids);
-	for(var x in ids){
+	for(var x in res3){
 		console.log("for1");
 		if(ids.indexOf(res3[x]) != -1)
 			res3.splice(x,1);
