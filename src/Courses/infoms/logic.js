@@ -76,6 +76,7 @@ const url_info_ms_base = "http://18.209.220.131:";
 
 export async function getAllCourses(url_info_ms){
 	let res = await axios.get(url_info_ms);
+	console.log(res.data);
 	return res.data;
 }
 

@@ -19,7 +19,7 @@ export const inscriptionTypeDef = `
   }`;
 
 export const inscriptionQueries = `
-      coursesByUserId(id: String!): [Curso]
+    coursesByUserId(id: String!): [Curso]
     inscriptionByUserIdAndCourseId(user_id: String!, course_id: Int!): Inscription!
     coursesByNotUserId(id: String!): [Curso]
   `;
