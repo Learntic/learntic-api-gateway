@@ -14,6 +14,8 @@ const resolvers = {
 			generalRequest(iterableUserErrorResponse, token, `${URL_Friends}/${id}`, 'GET'),
 		getUser: (_, { id, token}) => 
 			generalRequest(iterableUserErrorResponse, token, `${URL_Users}/${id}`, 'GET'),
+		getAllUsers: (_, { token}) => 
+			generalRequest(iterableUserErrorResponse, token, `${URL_Users}`, 'GET'),
 	},
 	Mutation: {
 		addFriend: (_, { data, token}) =>
