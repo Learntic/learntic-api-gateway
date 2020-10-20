@@ -12,7 +12,7 @@ export async function coursesByUserId(url_inscription_ms){
 		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
 		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
 		console.log(puntaje);
-		//res2.data.course_score = puntaje;
+		res2.data.course_score = puntaje;
 		cursos[y] = res2;
 	}
 	
