@@ -1,5 +1,6 @@
 const axios = require('axios');
 import infoResolvers from '../infoms/course/resolvers'
+import feedbackResolvers from '../feedback/resolvers'
 
 //-- Inscriptionms --//
 
@@ -9,6 +10,8 @@ export async function coursesByUserId(url_inscription_ms){
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
 		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
+		let puntaje = await feedbackResolvers.Query.feedbackScore(id);
+		res2.data.course_score = puntaje;
 		cursos[y] = res2;
 	}
 	
@@ -25,14 +28,11 @@ export async function coursesByNotUserId(url_inscription_ms){
 		ids[y] = id;
 	}
 	for(var x in res3){
-		console.log("for1");
 		if(ids.indexOf(res3[x]) != -1)
 			res3.splice(x,1);
 	}
-	console.log(res3)
 	for(var y in res3){
 		var id = res3[y];
-		console.log(id);
 		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
 		cursos[y] = res2;
 	}
