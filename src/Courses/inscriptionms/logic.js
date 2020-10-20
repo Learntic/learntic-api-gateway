@@ -27,9 +27,8 @@ export async function coursesByNotUserId(url_inscription_ms){
 		var id = res.data[y].id_curso;
 		ids[y] = id;
 	}
-	for(var x in res3){
-		if(ids.indexOf(res3[x]) != -1)
-			res3.splice(x,1);
+	for(var x in ids){
+		res3.splice(res3.indexOf(ids[x]),1);
 	}
 	for(var y in res3){
 		var id = res3[y];
