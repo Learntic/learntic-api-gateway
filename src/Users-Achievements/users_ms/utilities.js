@@ -37,10 +37,19 @@ export async function generalRequest(queryErrorResponse, token, url, method, bod
 	}
 }
 
-export async function friendsAchievementsHandler(url, method, body, fullResponse) {
-	let a = await usersResolvers.Query.myFriends(null, {id : "0xea61"})
-	let b = await achievementResolvers.Query.Achievement(null, {a})
-	return b
+export async function notMyFriends(queryErrorResponse, id, token) {
+	let isAuthenticated = await authResolvers.Query.auth(null, {token: {token:token} });
+
+	if (!isAuthenticated){
+		return queryErrorResponse
+	}
+
+	let allUsers = await usersResolvers.Query.getAllUsers(null, {token: token})
+	let myFriends = await usersResolvers.Query.myFriends(null, {id: id, token: token})
+	myFriends = myFriends.map((friend) => {return friend.uid})
+	let notMyFriends = allUsers.filter(user => !myFriends.includes(user.uid))
+
+	return notMyFriends
 }
 
 /**

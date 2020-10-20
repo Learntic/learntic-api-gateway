@@ -35,11 +35,13 @@ input friendshipInput {
 `;
 
 export const usersQueries = `
-      myFriends(token: String!, id: String!): [User]!
-      getUser(token: String!, id: String!): User!
+      myFriends(id: String!, token: String!): [User]!
+      notMyFriends(id: String!, token: String!): [User]!
+      getUser(id: String!, token: String!): User!
+      getAllUsers(token: String!): [User]!
   `;
 
 export const usersMutations = `
-    updateUser(token: String!, id: String!, user : updateUserInput!): User!
-    addFriend(data : friendshipInput!): Friendship
+    updateUser(id: String!, user : updateUserInput!, token: String!): User!
+    addFriend(data : friendshipInput!, token: String!): Friendship
 `;

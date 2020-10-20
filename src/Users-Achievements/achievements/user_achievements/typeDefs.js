@@ -14,7 +14,7 @@ export const achievementsTypeDef = `
   }
   input userAchievementsInput {
       username: String!
-      shared: Boolean!
+      shared: Boolean
 			achievements_id: String!
   }
   type Category {
