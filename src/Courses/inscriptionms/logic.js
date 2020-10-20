@@ -3,18 +3,18 @@ import infoResolvers from '../infoms/course/resolvers'
 
 //-- Inscriptionms --//
 
-export async function getInscriptionByUserId(url_inscription_ms){
+export async function coursesByUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
-	var nombres = [];
+	var cursos = [];
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
-		let res2 = await infoResolvers.Query.getCourseName(null, {id:{entero:id}});
+		let res2 = await infoResolvers.Query.getCourse(null, {id:{entero:id}});
 		console.log(id);
 		console.log(res2);
-		nombres[y] = res2;
+		cursos[y] = res2;
 	}
 	
-	return nombres;
+	return cursos;
 }
 
 export async function postCreateInscription(url_inscription_ms, inscription){

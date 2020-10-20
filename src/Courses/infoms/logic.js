@@ -89,8 +89,13 @@ export async function getTopicsByIdCourse(url_info_ms,entero){
 	return res.data;
 }
 
-export async function getCourseName(url_info_ms, course_id){
+export async function getCourse(url_info_ms, course_id){
 	let res = await axios.post(url_info_ms, course_id);
+	return res.data;
+}
+
+export async function getCoursesId(url_info_ms){
+	let res = await axios.get(url_info_ms);
 	return res.data;
 }
 

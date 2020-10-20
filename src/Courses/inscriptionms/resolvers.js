@@ -1,4 +1,4 @@
-import { getInscriptionByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription, getInscriptionByUserIdAndCourseId} from './logic';
+import { coursesByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription, getInscriptionByUserIdAndCourseId} from './logic';
 import { url, port, entryPoint, entryPoint_user } from './server';
 
 const URL = `http://${url}:${port}${entryPoint}`;
@@ -6,9 +6,9 @@ const URL_user = `http://${url}:${port}${entryPoint_user}`;
 
 const resolvers = {
 	Query: {
-		inscriptionByUserId: (_, { id }) =>{
+		coursesByUserId: (_, { id }) =>{
             console.log("Entramos al query correcto");
-			let response = getInscriptionByUserId(`${URL_user}?id_usuario=${id}`);
+			let response = coursesByUserId(`${URL_user}?id_usuario=${id}`);
             
             return response;
 	},
