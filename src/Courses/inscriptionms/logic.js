@@ -11,7 +11,6 @@ export async function coursesByUserId(url_inscription_ms){
 		var id = res.data[y].id_curso;
 		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
 		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
-		console.log(puntaje);
 		res2.course_score = puntaje;
 		cursos[y] = res2;
 	}
@@ -35,6 +34,8 @@ export async function coursesByNotUserId(url_inscription_ms){
 	for(var y in res3){
 		var id = res3[y];
 		let res2 = await infoResolvers.Mutation.getCourse(null, {id:{entero:id}});
+		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
+		res2.course_score = puntaje;
 		cursos[y] = res2;
 	}
 	
