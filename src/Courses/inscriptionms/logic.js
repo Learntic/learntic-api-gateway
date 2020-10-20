@@ -18,12 +18,17 @@ export async function coursesByUserId(url_inscription_ms){
 export async function coursesByNotUserId(url_inscription_ms){
 	let res = await axios.get(url_inscription_ms);
 	var cursos = [];
+	var id = [];
 	console.log(res);
 	let res3 = await infoResolvers.Query.getCoursesId(null);
 	console.log(res3[0]);
+	for(var y in res.data){
+		var id = res.data[y].id_curso;
+		id[y] = id;
+	}
 	for(var x in res3){
 		console.log("for1");
-		if(res.data.indexOf(res3[x]) != -1)
+		if(id.indexOf(res3[x]) != -1)
 			res3.splice(x,1);
 	}
 	console.log(res3)
