@@ -9,8 +9,20 @@ export async function coursesByUserId(url_inscription_ms){
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
 		let res2 = await infoResolvers.Query.getCourse(null, {id:{entero:id}});
-		console.log(id);
-		console.log(res2);
+		cursos[y] = res2;
+	}
+	
+	return cursos;
+}
+
+export async function coursesByNotUserId(url_inscription_ms){
+	let res = await axios.get(url_inscription_ms);
+	var cursos = [];
+	let res3 = await infoResolvers.Query.getCoursesId(null);
+	console.log(res3)
+	for(var y in res.data){
+		var id = res.data[y].id_curso;
+		let res2 = await infoResolvers.Query.getCourse(null, {id:{entero:id}});
 		cursos[y] = res2;
 	}
 	
