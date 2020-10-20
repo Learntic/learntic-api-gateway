@@ -1,5 +1,6 @@
 import authResolvers from '../../auth/resolvers'
 import topicResolver from './topic/resolvers'
+import feedbackResolvers from '../feedback/resolvers'
 
 const axios = require('axios');
 
@@ -77,6 +78,10 @@ const url_info_ms_base = "http://18.209.220.131:";
 export async function getAllCourses(url_info_ms){
 	let res = await axios.get(url_info_ms);
 	console.log(res.data);
+	for(var y in res.data){
+		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
+		res.data[y].course_score = puntaje;
+	}
 	return res.data;
 }
 
