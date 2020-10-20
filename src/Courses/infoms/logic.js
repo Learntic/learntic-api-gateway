@@ -81,6 +81,7 @@ export async function getAllCourses(url_info_ms){
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
 		let puntaje = await feedbackResolvers.Query.feedbackScore(null, {id_curso:id});
+		console.log(puntaje);
 		res[y].course_score = puntaje;
 	}
 	return res.data;
