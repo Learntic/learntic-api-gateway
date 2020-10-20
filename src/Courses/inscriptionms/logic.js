@@ -23,6 +23,7 @@ export async function coursesByNotUserId(url_inscription_ms){
 	for(var y in res.data){
 		var id = res.data[y].id_curso;
 		let res2 = await infoResolvers.Query.getCourse(null, {id:{entero:id}});
+		console.log("a")
 		cursos[y] = res2;
 	}
 	
