@@ -3,13 +3,12 @@ export const topicTypeDef = `
     topic_id: Int!
     topic_description: String!
     topic_name: String!
-    course_id: Int!
     topic_url: String!
   }
     
-    input EnteroInput{
+  input EnteroInput{
     entero: Int!
-}
+  }
   `;
 
 export const topicQueries = `
