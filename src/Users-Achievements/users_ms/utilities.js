@@ -47,7 +47,7 @@ export async function notMyFriends(queryErrorResponse, id, token) {
 	let allUsers = await usersResolvers.Query.getAllUsers(null, {token: token})
 	let myFriends = await usersResolvers.Query.myFriends(null, {id: id, token: token})
 	myFriends = myFriends.map((friend) => {return friend.uid})
-	let notMyFriends = allUsers.filter(user => !myFriends.includes(user.uid))
+	let notMyFriends = allUsers.filter(user => !myFriends.includes(user.uid) && user.uid != id)
 
 	return notMyFriends
 }
