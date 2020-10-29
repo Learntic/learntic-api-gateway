@@ -4,10 +4,18 @@ export const accountTypeDef = `
       password: String!
       token: String!
       uid: String!
+      name: String!
+      age: Int!
   }
   input AccountInput {
       username: String!
       password: String!
+  }
+  input RegisterInput {
+    username: String!
+    password: String!
+    name: String!
+    age: Int!
   }
   input Token {
       token: String!
@@ -19,5 +27,5 @@ export const accountQueries = `
   `;
 
 export const accountMutations = `
-    signUp(account: AccountInput!): Account!
+    signUp(account: RegisterInput!): Account!
 `;
