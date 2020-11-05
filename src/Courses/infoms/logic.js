@@ -5,7 +5,7 @@ const axios = require('axios');
 
 //-- Authorization --//
 
-const url_auth_ms = "http://18.232.11.157:3001";
+const url_auth_ms = "http://34.235.31.196:3001";
 
 
 export async function signUp(account) {
@@ -27,7 +27,7 @@ export async function token_auth(token) {
 
 //-- Feedback --//
 
-const url_feedback_ms = "http://3.210.254.47:";
+const url_feedback_ms = "http://34.235.31.196:";
 
 
 export async function feedbackByUser(url_feedback_ms){
@@ -71,7 +71,7 @@ export async function updateFeedback(url_feedback_ms, body) {
 }
 
 //-- Infoms --//
-const url_info_ms_base = "http://18.209.220.131:";
+const url_info_ms_base = "http://154.146.182.164:";
 
 
 export async function getAllCourses(url_info_ms){

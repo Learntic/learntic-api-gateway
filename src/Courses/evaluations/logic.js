@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 //-- Evaluations --//
-const url_ms = "http://54.152.226.20:4000";
+const url_ms = "http://34.235.31.196:4000";
 
 export async function getAllEvaluations() {
 	let response = await axios.get(`${url_ms}/eva`)
