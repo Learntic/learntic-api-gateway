@@ -25,8 +25,13 @@ export async function feedbackByCourse(url_feedback_ms)
 
 export async function feedbackByID(url_feedback_ms)
 {
-	let res = await axios.get(url_feedback_ms);
-	return res.data;
+	let a = await authResolvers.Query.auth(null,{token: {token:token} });
+	if (a){
+		let res = await axios.get(url_feedback_ms);
+		return res.data;
+	}
+	feedback = {id:-1,id_usuario:null,id_curso:null,opinion:null,nota:null};
+	return feedback;
 }
 
 export async function getAllFeedback(url_feedback_ms)

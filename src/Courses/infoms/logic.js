@@ -3,76 +3,8 @@ import topicResolver from './topic/resolvers'
 
 const axios = require('axios');
 
-//-- Authorization --//
 
-const url_auth_ms = "http://34.235.31.196:3001";
-
-
-export async function signUp(account) {
-	let response = await axios.post(url_auth_ms + "/signUp", account)
-	return response.data
-}
-
-export async function signIn(account) {
-	let response = await axios.post(url_auth_ms + "/signIn", account)
-	return response.data
-}
-
-export async function token_auth(token) {
-	let response = await axios.post(url_auth_ms + "/auth", token);
-	return response.data.authorization;
-}
-
-
-
-//-- Feedback --//
-
-const url_feedback_ms = "http://34.235.31.196:";
-
-
-export async function feedbackByUser(url_feedback_ms){
-	let res = await axios.get(url_feedback_ms);
-	return res.data;
-}
-
-export async function feedbackByCourse(url_feedback_ms){
-	let res = await axios.get(url_feedback_ms);
-	return res.data;
-}
-
-export async function feedbackByID(url_feedback_ms,token){
-	let a = await authResolvers.Query.auth(null,{token: {token:token} });
-	if (a){
-		let res = await axios.get(url_feedback_ms);
-		return res.data;
-	}
-	feedback = {id:-1,id_usuario:null,id_curso:null,opinion:null,nota:null};
-	return feedback;
-}
-
-export async function getAllFeedback(url_feedback_ms){
-	let res = await axios.get(url_feedback_ms);
-	return res.data;
-}
-
-export async function createFeedback(url_feedback_ms,body) {
-	let res = await axios.post(url_feedback_ms,body);
-	return res.data;
-}
-
-export async function deleteFeedback(url_feedback_ms) {
-	let res = await axios.delete(url_feedback_ms);
-	return res.data;
-}
-
-export async function updateFeedback(url_feedback_ms, body) {
-	let res = await axios.put(url_feedback_ms, body);
-	return res.data;
-}
-
-//-- Infoms --//
-const url_info_ms_base = "http://154.146.182.164:";
-
+//-- Infoms --/
 
 export async function getAllCourses(url_info_ms){
 	let res = await axios.get(url_info_ms);
