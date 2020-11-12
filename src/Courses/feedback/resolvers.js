@@ -23,6 +23,7 @@ const resolvers = {
       return response;
 		},
 		feedbackScore: (_, {id_curso}) => {
+console.log("Esto es id curso", id_curso);
 			let response = getFeedbackScore(`${URL}/${coursenote}/${id_curso}`);
       return response;
 		}

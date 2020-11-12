@@ -37,7 +37,6 @@ export async function coursesByNotUserId(url_inscription_ms){
 		res2.course_score = puntaje;
 		cursos[y] = res2;
 	}
-	
 	return cursos;
 }
 

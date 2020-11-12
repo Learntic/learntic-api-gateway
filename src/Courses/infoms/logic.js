@@ -16,7 +16,7 @@ export async function searchCourseByText(url_info_ms,cadena){
 	return res.data;
 }
 
-export async function getTopicsByIdCourse(url_info_ms,entero){
+export async function getTopicsByIdCourse(url_info_ms, entero){
 	let res = await axios.post(url_info_ms, entero);
 	return res.data;
 }

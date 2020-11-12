@@ -6,7 +6,8 @@ const URL = `http://${url}:${port}`;
 
 const resolvers = {
 	Query: {
-		courseTopics: (_,{idCurso}) =>{
+	courseTopics: (_,{idCurso}) =>{
+	    console.log(idCurso);
             let response = getTopicsByIdCourse(`${URL}/${entryPoint}`,idCurso);
             return response;
             
