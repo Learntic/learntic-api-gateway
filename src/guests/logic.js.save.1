@@ -1,0 +1,12 @@
+const axios = require('axios');
+
+export async function getAllGuests(url_info_ms){
+	console.log("Esto es la URL a la que le estoy pidiendo",url_info_ms);
+let res = await axios.get(url_info_ms);
+	console.log("esto es la respuesta", res.data);
+//	for (i = 0; i<res.data.lenght(); i++){
+//		newData[i] = {id: res.data[i].id, nombre: res.data[i].nombre, apellido: res.data[i].apellido}
+//	}
+	console.log("Esto es newData", newData);
+	return newData;
+}
