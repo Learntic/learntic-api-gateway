@@ -52,6 +52,11 @@ import {
 	usersTypeDef
 } from './Users-Achievements/users_ms/typeDefs';
 
+import {
+	guestQueries,
+	guestTypeDef
+} from './guests/typeDefs';
+
 import accountResolvers from './auth/resolvers';
 
 import feedbackResolvers from './Courses/feedback/resolvers';
@@ -68,6 +73,8 @@ import inscriptionResolvers from './Courses/inscriptionms/resolvers';
 
 import usersResolvers from './Users-Achievements/users_ms/resolvers';
 
+import guestResolvers from './guests/resolvers';
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
@@ -79,7 +86,8 @@ const mergedTypeDefs = mergeSchemas(
 		courseTypeDef,
 		topicTypeDef,
 		inscriptionTypeDef,
-		usersTypeDef
+		usersTypeDef,
+		guestTypeDef
 	],
 	[
 		accountQueries,
@@ -89,7 +97,8 @@ const mergedTypeDefs = mergeSchemas(
 		courseQueries,
 		topicQueries,
 		inscriptionQueries,
-		usersQueries
+		usersQueries,
+		guestQueries
 	],
 	[
 		accountMutations,
@@ -115,6 +124,7 @@ export default makeExecutableSchema({
 		courseResolvers,
 		topicResolvers,
 		inscriptionResolvers,
-		usersResolvers
+		usersResolvers,
+		guestResolvers
 	)
 });
