@@ -1,9 +1,8 @@
 import { generalRequest, notMyFriends} from './utilities';
-import { url, port, friendsEntryPoint, usersEntryPoint } from './server';
+import { friendsEntryPoint, usersEntryPoint } from './server';
 
-const URL_Friends = `http://${url}:${port}/${friendsEntryPoint}`;
-const URL_Users = `http://${url}:${port}/${usersEntryPoint}`;
-
+const URL_Friends = `http://${process.env.USERS_URL}:${process.env.USERS_PORT}/${friendsEntryPoint}`;
+const URL_Users = `http://${process.env.USERS_URL}:${process.env.USERS_PORT}/${usersEntryPoint}`;
 
 let iterableUserErrorResponse =  [{error: new Error('authentication failed - not valid token!')}]
 let userErrorResponse =  {error: new Error('authentication failed - not valid token!')}

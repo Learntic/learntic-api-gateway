@@ -1,11 +1,9 @@
-
-
 import { generalRequest, addParams } from '../../../utilities';
-import { url, port, entryPointAllUsers,entryPointDeleteUserAchievement,entryPointGetAchievementsByUsernames,entryPointDeleteAchievement, entryPointNewUserAchievement,entryPointNewAchievement,entryPointAllAchievements} from './server';
+import { entryPointAllUsers,entryPointDeleteUserAchievement,entryPointGetAchievementsByUsernames,entryPointDeleteAchievement, entryPointNewUserAchievement,entryPointNewAchievement,entryPointAllAchievements} from './server';
 
 import { getAllUsers, getAllAchievements, getFriendsAchievements} from '../logic';
 
-const URL = `http://${url}:${port}`;
+const URL = `http://${process.env.ACHIEVEMENTS_URL}:${process.env.ACHIEVEMENTS_PORT}`;
 
 const resolvers = {
 	Query: {

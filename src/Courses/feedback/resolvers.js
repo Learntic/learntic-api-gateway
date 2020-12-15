@@ -2,7 +2,7 @@ import { generalRequest, getRequest } from '../../utilities';
 import { url, port, entryPoint, user, course, coursenote } from './server';
 import { feedbackByUser, feedbackByCourse, feedbackByID, getAllFeedback, createFeedback, deleteFeedback, updateFeedback, getFeedbackScore } from './logic';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
+const URL = `http://${process.env.FEEDBACK_URL}:${process.env.FEEDBACK_PORT}/${entryPoint}`;
 
 const resolvers = {
 	Query: {

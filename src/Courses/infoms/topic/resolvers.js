@@ -1,8 +1,8 @@
 import { getTopicsByIdCourse} from '../logic';
-import { url, port, entryPoint } from './server';
+import { entryPoint } from './server';
 
 
-const URL = `http://${url}:${port}`;
+const URL = `http://${process.env.TOPICS_URL}:${process.env.TOPICS_PORT}`;
 
 const resolvers = {
 	Query: {

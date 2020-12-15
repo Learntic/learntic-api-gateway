@@ -1,7 +1,7 @@
 import { signUp,signIn,token_auth } from './logic_authorization';
-import {url, port, signUpPoint, signInPoint, authPoint} from './server';
+import {signUpPoint, signInPoint, authPoint} from './server';
 
-const URL = `http://${url}:${port}`;
+const URL = `http://${process.env.AUTH_URL}:${process.env.AUTH_PORT}`;
 
 const resolvers = {
 	Query:{

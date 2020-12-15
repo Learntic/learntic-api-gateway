@@ -1,8 +1,8 @@
 import { coursesByUserId, postCreateInscription, putUpdateInscription, deleteDeleteInscription, getInscriptionByUserIdAndCourseId, coursesByNotUserId} from './logic';
-import { url, port, entryPoint, entryPoint_user } from './server';
+import { entryPoint, entryPoint_user } from './server';
 
-const URL = `http://${url}:${port}${entryPoint}`;
-const URL_user = `http://${url}:${port}${entryPoint_user}`;
+const URL = `http://${process.env.INSCRIPTION_URL}:${process.env.INSCRIPTION_PORT}${entryPoint}`;
+const URL_user = `http://${process.env.INSCRIPTION_URL}:${process.env.INSCRIPTION_PORT}${entryPoint_user}`;
 
 const resolvers = {
 	Query: {

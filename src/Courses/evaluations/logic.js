@@ -2,7 +2,7 @@
 const axios = require('axios');
 
 //-- Evaluations --//
-const url_ms = "http://34.235.31.196:4000";
+const url_ms = `http://${process.env.EVALUATION_URL}:${process.env.EVALUATION_PORT}`;
 
 export async function getAllEvaluations() {
 	let response = await axios.get(`${url_ms}/eva`)

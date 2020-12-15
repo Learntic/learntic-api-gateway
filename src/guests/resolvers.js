@@ -1,7 +1,7 @@
 import { getAllGuests } from "./logic";
-import {url, port, guestPoint} from './server';
+import { guestPoint} from './server';
 
-const URL = `http://${url}:${port}`;
+const URL = `http://${process.env.GUEST_URL}:${process.env.GUEST_PORT}`;
 
 const resolvers = {
     Query:{

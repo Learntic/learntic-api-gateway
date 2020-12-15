@@ -1,8 +1,8 @@
 import { getAllCourses,searchCourseByText, getCourse, getCoursesId} from '../logic';
-import { url, port, entryPoint, entryPointSearchCourse, entryPointSearchCourseComplete, entryPointSearchCoursesIds } from './server';
+import { entryPoint, entryPointSearchCourse, entryPointSearchCourseComplete, entryPointSearchCoursesIds } from './server';
 
 
-const URL = `http://${url}:${port}`;
+const URL = `http://${process.env.COURSES_URL}:${process.env.COURSES_PORT}`;
 
 const resolvers = {
 	Query: {

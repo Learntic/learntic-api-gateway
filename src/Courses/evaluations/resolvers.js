@@ -1,7 +1,7 @@
 import { getAllEvaluations,getAllQuiz,evaluationById,quizById,createEvaluation,createQuiz,deleteEvaluation,deleteQuiz, UpdateEvaluation, UpdateQuiz, ByStudent} from './logic';
-import { url, port, evaluation, quiz } from './server';
+import {evaluation, quiz } from './server';
 
-const URL = `http://${url}:${port}`
+const URL = `http://${process.env.EVALUATION_URL}:${process.env.EVALUATION_PORT}`
 
 const resolvers = {
 	Query: {

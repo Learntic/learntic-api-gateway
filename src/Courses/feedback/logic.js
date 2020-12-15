@@ -4,8 +4,6 @@ const axios = require('axios');
 
 //-- Feedback --//
 
-const url_feedback_ms = "http://34.235.31.196:3000";
-
 export async function feedbackByUser(url_feedback_ms,token)
 {
 	let a = await authResolvers.Query.auth(null,{token: {token:token} });

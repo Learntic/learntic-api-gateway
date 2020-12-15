@@ -1,5 +1,5 @@
-export const url = '34.235.31.196'
-export const port = '3001'
+export const url = '50.19.122.85'
+export const port = '30834'
 export const signUpPoint = 'signUp'
 export const signInPoint = 'signIn'
 export const authPoint = 'auth'
