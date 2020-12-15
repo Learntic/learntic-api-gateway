@@ -2,7 +2,7 @@ import { getTopicsByIdCourse} from '../logic';
 import { entryPoint } from './server';
 
 
-const URL = `http://${process.env.TOPICS_URL}:${process.env.TOPICS_PORT}`;
+const URL = `http://${process.env.COURSES_URL}:${process.env.COURSES_PORT}`;
 
 const resolvers = {
 	Query: {
